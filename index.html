@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cube by Vasu Gondaliya</title>
     <link rel="stylesheet" href="cube.css">
+    <link rel="stylesheet" href="cubeparts.css">
+    <link rel="stylesheet" href="planeparts.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
-    <div class="cube">
+    <div class="cube" style="transform: rotate3d(1,1,1,60deg);">
         <div class="front">
             <div class="part" id="f1"></div>
             <div class="part" id="f2"></div>
@@ -145,6 +148,26 @@
             <div class="part" id="xl9"></div>
         </div>
     </div>
+
+    <p>Rotate Cube:</p>
+    <form class="rotate-slider">
+
+        <label for="slider-x">X:</label>
+        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-x">
+
+        <label for="slider-y">Y:</label>
+        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-y">
+
+
+        <label for="slider-z">Z:</label>
+        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-z">
+
+        <label for="slider-angle">Angle</label>
+        <input type="range" min="0" max="360" step="1" value="60" id="slider-angle">
+
+    </form>
+
+
     <p>With Green Face Front</p>
     <div class="btn">
         <button type="button" class="right">Right</button>

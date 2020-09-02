@@ -1,0 +1,215 @@
+#xf1 {
+    transform: translate(-30px, -30px);
+}
+
+#xf2 {
+    transform: translate(0, -30px);
+}
+
+#xf3 {
+    transform: translate(30px, -30px);
+}
+
+#xf4 {
+    transform: translate(-30px, 0);
+}
+
+#xf5 {
+    transform: translate(0, 0);
+}
+
+#xf6 {
+    transform: translate(30px, 0);
+}
+
+#xf7 {
+    transform: translate(-30px, 30px);
+}
+
+#xf8 {
+    transform: translate(0, 30px);
+}
+
+#xf9 {
+    transform: translate(30px, 30px);
+}
+
+#xu1 {
+    transform: translate(-30px, -120px);
+}
+
+#xu2 {
+    transform: translate(0, -120px);
+}
+
+#xu3 {
+    transform: translate(30px, -120px);
+}
+
+#xu4 {
+    transform: translate(-30px, -90px);
+}
+
+#xu5 {
+    transform: translate(0, -90px);
+}
+
+#xu6 {
+    transform: translate(30px, -90px);
+}
+
+#xu7 {
+    transform: translate(-30px, -60px);
+}
+
+#xu8 {
+    transform: translate(0, -60px);
+}
+
+#xu9 {
+    transform: translate(30px, -60px);
+}
+
+#xd1 {
+    transform: translate(-30px, 60px);
+}
+
+#xd2 {
+    transform: translate(0, 60px);
+}
+
+#xd3 {
+    transform: translate(30px, 60px);
+}
+
+#xd4 {
+    transform: translate(-30px, 90px);
+}
+
+#xd5 {
+    transform: translate(0, 90px);
+}
+
+#xd6 {
+    transform: translate(30px, 90px);
+}
+
+#xd7 {
+    transform: translate(-30px, 120px);
+}
+
+#xd8 {
+    transform: translate(0, 120px);
+}
+
+#xd9 {
+    transform: translate(30px, 120px);
+}
+
+#xl1 {
+    transform: translate(-120px, -30px);
+}
+
+#xl2 {
+    transform: translate(-90px, -30px);
+}
+
+#xl3 {
+    transform: translate(-60px, -30px);
+}
+
+#xl4 {
+    transform: translate(-120px, 0);
+}
+
+#xl5 {
+    transform: translate(-90px, 0);
+}
+
+#xl6 {
+    transform: translate(-60px, 0);
+}
+
+#xl7 {
+    transform: translate(-120px, 30px);
+}
+
+#xl8 {
+    transform: translate(-90px, 30px);
+}
+
+#xl9 {
+    transform: translate(-60px, 30px);
+}
+
+#xr1 {
+    transform: translate(60px, -30px);
+}
+
+#xr2 {
+    transform: translate(90px, -30px);
+}
+
+#xr3 {
+    transform: translate(120px, -30px);
+}
+
+#xr4 {
+    transform: translate(60px, 0);
+}
+
+#xr5 {
+    transform: translate(90px, 0);
+}
+
+#xr6 {
+    transform: translate(120px, 0);
+}
+
+#xr7 {
+    transform: translate(60px, 30px);
+}
+
+#xr8 {
+    transform: translate(90px, 30px);
+}
+
+#xr9 {
+    transform: translate(120px, 30px);
+}
+
+#xb1 {
+    transform: translate(150px, -30px);
+}
+
+#xb2 {
+    transform: translate(180px, -30px);
+}
+
+#xb3 {
+    transform: translate(210px, -30px);
+}
+
+#xb4 {
+    transform: translate(150px, 0);
+}
+
+#xb5 {
+    transform: translate(180px, 0);
+}
+
+#xb6 {
+    transform: translate(210px, 0);
+}
+
+#xb7 {
+    transform: translate(150px, 30px);
+}
+
+#xb8 {
+    transform: translate(180px, 30px);
+}
+
+#xb9 {
+    transform: translate(210px, 30px);
+}

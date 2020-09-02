@@ -44,16 +44,70 @@ function resetColor() {
     }
     document.getElementById("sequence").textContent = "";
 }
-let moves = ["R", "L", "U", "D", "F", "B", "R'", "L'", "U'", "D'", "F'", "B'"];
+
+// let moves = ["R", "L", "U", "D", "F", "B"];
+// document.getElementById("generate").onclick = function () {
+//     let sequence = "";
+//     for (let i = 0; i < 20; i++) {
+//         let x = Math.floor(Math.random() * 6);
+//         turn(x, direction[x][0]);
+//         sequence += (moves[x] + " ");
+//     }
+//     document.getElementById("sequence").textContent = sequence;
+// };
+
+let moves = ["R", "L", "U", "D", "F", "B"];
 document.getElementById("generate").onclick = function () {
-    let sequence = "";
-    for (let i = 0; i < 20; i++) {
+    let sequenceArray = [];
+    for (let i = 0; i < 30; i++) {
         let x = Math.floor(Math.random() * 6);
         turn(x, direction[x][0]);
-        sequence += (moves[x] + " ");
+        sequenceArray.push(x);
+    }
+    let sequence = "";
+    for (let i = 0; i < 30; i++) {
+        let count = 1;
+        for (let j = i + 1; j < 30; j++, i++) {
+            if (sequenceArray[j] == sequenceArray[i]) {
+                count++;
+            }
+            else {
+                break;
+            }
+        }
+        count %= 4;
+        console.log(count);
+        switch (count) {
+            case 1:
+                sequence += moves[sequenceArray[i]];
+                break;
+            case 2:
+                sequence += moves[sequenceArray[i]];
+                sequence += "2";
+                break;
+            case 3:
+                sequence += moves[sequenceArray[i]];
+                sequence += "'";
+                break;
+            default:
+                break;
+        }
+        sequence += " ";
     }
     document.getElementById("sequence").textContent = sequence;
 };
 document.getElementById("reset").onclick = function () {
     resetColor();
 };
+
+function rotateCube() {
+    let x = document.getElementById("slider-x").value;
+    let y = document.getElementById("slider-y").value;
+    let z = document.getElementById("slider-z").value;
+    let a = document.getElementById("slider-angle").value;
+    document.querySelector(".cube").style.transform = "rotate3d(" + x + "," + y + "," + z + "," + a + "deg)";
+}
+document.getElementById("slider-x").addEventListener("input", rotateCube);
+document.getElementById("slider-y").addEventListener("input", rotateCube);
+document.getElementById("slider-z").addEventListener("input", rotateCube);
+document.getElementById("slider-angle").addEventListener("input", rotateCube);
