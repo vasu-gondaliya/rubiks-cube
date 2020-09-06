@@ -3,55 +3,45 @@
     padding: 0;
 }
 
-.cube {
-    transform-style: preserve-3d;
-    transform-origin: center;
-    margin: 100px;
-    width: 80px;
-    height: 90px;
-}
-
-.plane-cube {
-    transform: scale3d(0.7, 0.7, 0.7);
-    transform-style: preserve-3d;
-    transform-origin: center;
-    margin: 200px 0 100px 100px;
-    width: 80px;
-    height: 90px;
-}
-
-.part {
-    width: 26px;
-    height: 26px;
-    border: 2px solid black;
-    position: absolute;
-}
-
-.front>div {
-    background-color: rgb(0, 128, 0);
-}
-
-.back>div {
-    background-color: rgb(0, 0, 255);
-}
-
-.up>div {
-    background-color: rgb(255, 255, 255);
-}
-
-.down>div {
-    background-color: rgb(255, 255, 0);
-}
-
-.right>div {
-    background-color: rgb(255, 0, 0);
-}
-
-.left>div {
-    background-color: rgb(255, 140, 0);
-}
-
 div#sequence {
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+hr {
+    margin: 5px;
+}
+
+input {
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+}
+
+.slider-text span {
+    display: inline-block;
+    text-align: center;
+    width: 156px;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* .up-animation {
+    animation: up 0.2s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes up {
+    from {
+        transform: rotateY(45deg) rotate3d(1, 0, 1, -17deg);
+    }
+
+    to {
+        transform: rotateY(45deg) rotate3d(1, 0, 1, -17deg) rotateZ(90deg);
+    }
+} */

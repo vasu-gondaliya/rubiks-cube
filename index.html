@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="cube" style="transform: rotate3d(1,1,1,60deg);">
+    <div class="cube" style="transform: rotateY(45deg) rotate3d(1,0,1,-17deg)">
         <div class="front">
             <div class="part" id="f1"></div>
             <div class="part" id="f2"></div>
@@ -80,6 +80,7 @@
             <div class="part" id="l9"></div>
         </div>
     </div>
+    <hr>
     <div class="plane-cube">
         <div class="front">
             <div class="part" id="xf1"></div>
@@ -149,39 +150,48 @@
         </div>
     </div>
 
-    <p>Rotate Cube:</p>
+    <hr>
+    <p>Rotate Cube: rotate3d(x,y,z,angle)</p>
     <form class="rotate-slider">
 
         <label for="slider-x">X:</label>
-        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-x">
+        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-x">
 
         <label for="slider-y">Y:</label>
-        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-y">
+        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-y">
 
 
         <label for="slider-z">Z:</label>
-        <input type="range" min="0" max="1" step="0.05" value="1" id="slider-z">
+        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-z">
 
-        <label for="slider-angle">Angle</label>
+        <label for="slider-angle">Angle:</label>
         <input type="range" min="0" max="360" step="1" value="60" id="slider-angle">
 
     </form>
-
-
-    <p>With Green Face Front</p>
-    <div class="btn">
-        <button type="button" class="right">Right</button>
-        <button type="button" class="left">Left</button>
-        <button type="button" class="up">Up</button>
-        <button type="button" class="down">Down</button>
-        <button type="button" class="front">Front</button>
-        <button type="button" class="back">Back</button>
+    <div class="slider-text">
+        <span id="text-x">1</span>
+        <span id="text-y">0</span>
+        <span id="text-z">1</span>
+        <span id="text-angle">-17deg</span>
     </div>
     <hr>
-    <p>Scramble Sequence : </p>
-    <button type="button" id="generate">Generate</button>
-    <button type="button" id="reset">Reset</button>
-    <div id="sequence"></div>
+    <div class="main-section">
+        <div class="btn">
+            <p>With Green Face Front</p>
+            <button type="button" class="right">Right</button>
+            <button type="button" class="left">Left</button>
+            <button type="button" class="up">Up</button>
+            <button type="button" class="down">Down</button>
+            <button type="button" class="front">Front</button>
+            <button type="button" class="back">Back</button>
+        </div>
+        <div class="scramble-section">
+            <p>Scramble Sequence : </p>
+            <button type="button" id="generate">Generate</button>
+            <button type="button" id="reset">Reset</button>
+            <div id="sequence"></div>
+        </div>
+    </div>
     <hr>
 </body>
 <script src="cube.js"></script>
