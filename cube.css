@@ -30,18 +30,3 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
-/* .up-animation {
-    animation: up 0.2s linear;
-    animation-fill-mode: forwards;
-}
-
-@keyframes up {
-    from {
-        transform: rotateY(45deg) rotate3d(1, 0, 1, -17deg);
-    }
-
-    to {
-        transform: rotateY(45deg) rotate3d(1, 0, 1, -17deg) rotateZ(90deg);
-    }
-} */

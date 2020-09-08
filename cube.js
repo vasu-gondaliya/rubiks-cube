@@ -90,100 +90,59 @@ document.getElementById("reset").onclick = function () {
     resetColor();
 };
 
-function rotateCube() {
-    let x = document.getElementById("slider-x").value;
-    let y = document.getElementById("slider-y").value;
-    let z = document.getElementById("slider-z").value;
-    let a = document.getElementById("slider-angle").value + "deg";
-    document.querySelector(".cube").style.transform = "rotate3d(" + x + "," + y + "," + z + "," + a + ")";
-    document.getElementById("text-x").innerHTML = x;
-    document.getElementById("text-y").innerHTML = y;
-    document.getElementById("text-z").innerHTML = z;
-    document.getElementById("text-angle").innerHTML = a;
-}
-document.getElementById("slider-x").addEventListener("input", rotateCube);
-document.getElementById("slider-y").addEventListener("input", rotateCube);
-document.getElementById("slider-z").addEventListener("input", rotateCube);
-document.getElementById("slider-angle").addEventListener("input", rotateCube);
-
-
-// document.onkeydown = checkkey; //or document.addEventListener("onkeydown",function(event){});
-// function checkkey(event) {
-//     let currentTransform = document.querySelector(".cube").style.transform;
-//     switch (event.key) {
-//         case "ArrowUp":
-//             document.querySelector(".cube").style.transform = currentTransform + " rotateZ(90deg)";
-//             break;
-//         case "ArrowDown":
-//             document.querySelector(".cube").style.transform = currentTransform + " rotateZ(-90deg)";
-//             break;
-//         case "ArrowLeft":
-//             document.querySelector(".cube").style.transform = currentTransform + " rotateY(-90deg)";
-//             break;
-//         case "ArrowRight":
-//             document.querySelector(".cube").style.transform = currentTransform + " rotateY(90deg)";
-//             break;
-//     }
+// function rotateCube() {
+//     let x = document.getElementById("slider-x").value;
+//     let y = document.getElementById("slider-y").value;
+//     let z = document.getElementById("slider-z").value;
+//     let a = document.getElementById("slider-angle").value + "deg";
+//     document.querySelector(".cube").style.transform = "rotate3d(" + x + "," + y + "," + z + "," + a + ")";
+//     document.getElementById("text-x").innerHTML = x;
+//     document.getElementById("text-y").innerHTML = y;
+//     document.getElementById("text-z").innerHTML = z;
+//     document.getElementById("text-angle").innerHTML = a;
 // }
+// document.getElementById("slider-x").addEventListener("input", rotateCube);
+// document.getElementById("slider-y").addEventListener("input", rotateCube);
+// document.getElementById("slider-z").addEventListener("input", rotateCube);
+// document.getElementById("slider-angle").addEventListener("input", rotateCube);
 
-document.onkeydown = checkkey;
-function checkkey(event) {
-    switch (event.key) {
-        case "ArrowUp":
-            let upcount = 0;
-            let upinterval = setInterval(cubeup, 6);
-            function cubeup() {
-                upcount++;
-                let cube = document.querySelector(".cube");
-                let currentTransform = cube.style.transform;
-                cube.style.transform = currentTransform + "rotateZ(3deg)";
-                if (upcount >= 30) {
-                    clearInterval(upinterval);
-                }
-            }
-            break;
-        case "ArrowDown":
-            let downcount = 0;
-            let downinterval = setInterval(cubedown, 6);
-            function cubedown() {
-                downcount++;
-                let cube = document.querySelector(".cube");
-                let currentTransform = cube.style.transform;
-                cube.style.transform = currentTransform + "rotateZ(-3deg)";
-                if (downcount >= 30) {
-                    clearInterval(downinterval);
-                }
-            }
-            break;
-        case "ArrowLeft":
-            let leftcount = 0;
-            let leftinterval = setInterval(cubeleft, 6);
-            function cubeleft() {
-                leftcount++;
-                let cube = document.querySelector(".cube");
-                let currentTransform = cube.style.transform;
-                cube.style.transform = currentTransform + "rotateY(-3deg)";
-                if (leftcount >= 30) {
-                    clearInterval(leftinterval);
-                }
-            }
-            break;
-        case "ArrowRight":
-            let rightcount = 0;
-            let rightinterval = setInterval(cuberight, 6);
-            function cuberight() {
-                rightcount++;
-                let cube = document.querySelector(".cube");
-                let currentTransform = cube.style.transform;
-                cube.style.transform = currentTransform + "rotateY(3deg)";
-                if (rightcount >= 30) {
-                    clearInterval(rightinterval);
-                }
-            }
-            break;
-        default:
-            break;
+let stateArray =         //left,up,right,down
+    [
+        [0, 0, 0, 0],
+        [2, 5, 4, 13],
+        [3, 19, 1, 11],
+        [4, 15, 2, 7],
+        [1, 9, 3, 17],
+        [6, 21, 8, 1],
+        [7, 20, 5, 10],
+        [8, 3, 6, 23],
+        [5, 12, 7, 18],
+        [10, 22, 12, 4],
+        [11, 6, 9, 16],
+        [12, 2, 10, 24],
+        [9, 14, 11, 8],
+        [14, 1, 16, 21],
+        [15, 18, 13, 12],
+        [16, 23, 14, 3],
+        [13, 10, 15, 20],
+        [18, 4, 20, 22],
+        [19, 8, 17, 14],
+        [20, 24, 18, 2],
+        [17, 16, 19, 6],
+        [22, 13, 24, 5],
+        [23, 17, 21, 9],
+        [24, 7, 22, 15],
+        [21, 11, 23, 19]
+    ];
+let currentState = 1;
+let currentClass = "s23";
+document.onkeyup = function (e) {
+    let k = e.keyCode - 37;
+    if (k >= 0 && k <= 3) {
+        let cube = document.querySelector(".cube");
+        cube.classList.remove(currentClass);
+        currentClass = "s" + currentState + (k + 1);
+        cube.classList.add(currentClass);
+        currentState = stateArray[currentState][k];
     }
-
-
-}
+};

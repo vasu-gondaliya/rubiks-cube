@@ -1,0 +1,1353 @@
+* {
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+:root {
+    --dt: rotateX(-17deg) rotateY(-30deg);
+}
+
+.s11 {
+    animation-name: s11;
+}
+
+@keyframes s11 {
+    from {
+        transform: var(--dt) rotateX(0deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(0deg) rotateY(-90deg);
+    }
+}
+
+.s12 {
+    animation-name: s12;
+}
+
+@keyframes s12 {
+    from {
+        transform: var(--dt) rotateX(0deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(0deg) rotateX(90deg);
+    }
+}
+
+.s13 {
+    animation-name: s13;
+}
+
+@keyframes s13 {
+    from {
+        transform: var(--dt) rotateX(0deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(0deg) rotateY(90deg);
+    }
+}
+
+.s14 {
+    animation-name: s14;
+}
+
+@keyframes s14 {
+    from {
+        transform: var(--dt) rotateX(0deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(0deg) rotateX(-90deg);
+    }
+}
+
+.s21 {
+    animation-name: s21;
+}
+
+@keyframes s21 {
+    from {
+        transform: var(--dt) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-90deg) rotateY(-90deg);
+    }
+}
+
+.s22 {
+    animation-name: s22;
+}
+
+@keyframes s22 {
+    from {
+        transform: var(--dt) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s23 {
+    animation-name: s23;
+}
+
+@keyframes s23 {
+    from {
+        transform: var(--dt) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-90deg) rotateY(90deg);
+    }
+}
+
+.s24 {
+    animation-name: s24;
+}
+
+@keyframes s24 {
+    from {
+        transform: var(--dt) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-90deg) rotateZ(90deg);
+    }
+}
+
+.s31 {
+    animation-name: s31;
+}
+
+@keyframes s31 {
+    from {
+        transform: var(--dt) rotateY(-180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-180deg) rotateY(-90deg);
+    }
+}
+
+.s32 {
+    animation-name: s32;
+}
+
+@keyframes s32 {
+    from {
+        transform: var(--dt) rotateY(-180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-180deg) rotateX(-90deg);
+    }
+}
+
+.s33 {
+    animation-name: s33;
+}
+
+@keyframes s33 {
+    from {
+        transform: var(--dt) rotateY(-180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-180deg) rotateY(90deg);
+    }
+}
+
+.s34 {
+    animation-name: s34;
+}
+
+@keyframes s34 {
+    from {
+        transform: var(--dt) rotateY(-180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(-180deg) rotateX(90deg);
+    }
+}
+
+.s41 {
+    animation-name: s41;
+}
+
+@keyframes s41 {
+    from {
+        transform: var(--dt) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(90deg) rotateY(-90deg);
+    }
+}
+
+.s42 {
+    animation-name: s42;
+}
+
+@keyframes s42 {
+    from {
+        transform: var(--dt) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(90deg) rotateZ(90deg);
+    }
+}
+
+.s43 {
+    animation-name: s43;
+}
+
+@keyframes s43 {
+    from {
+        transform: var(--dt) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(90deg) rotateY(90deg);
+    }
+}
+
+.s44 {
+    animation-name: s44;
+}
+
+@keyframes s44 {
+    from {
+        transform: var(--dt) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateY(90deg) rotateZ(-90deg);
+    }
+}
+
+.s51 {
+    animation-name: s51;
+}
+
+@keyframes s51 {
+    from {
+        transform: var(--dt) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg);
+    }
+}
+
+.s52 {
+    animation-name: s52;
+}
+
+@keyframes s52 {
+    from {
+        transform: var(--dt) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateX(90deg);
+    }
+}
+
+.s53 {
+    animation-name: s53;
+}
+
+@keyframes s53 {
+    from {
+        transform: var(--dt) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg);
+    }
+}
+
+.s54 {
+    animation-name: s54;
+}
+
+@keyframes s54 {
+    from {
+        transform: var(--dt) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateX(-90deg);
+    }
+}
+
+.s61 {
+    animation-name: s61;
+}
+
+@keyframes s61 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg) rotateZ(90deg);
+    }
+}
+
+.s62 {
+    animation-name: s62;
+}
+
+@keyframes s62 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg) rotateY(-90deg);
+    }
+}
+
+.s63 {
+    animation-name: s63;
+}
+
+@keyframes s63 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg) rotateZ(-90deg);
+    }
+}
+
+.s64 {
+    animation-name: s64;
+}
+
+@keyframes s64 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(90deg) rotateY(90deg);
+    }
+}
+
+.s71 {
+    animation-name: s71;
+}
+
+@keyframes s71 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg) rotateZ(90deg);
+    }
+}
+
+.s72 {
+    animation-name: s72;
+}
+
+@keyframes s72 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg) rotateX(-90deg);
+    }
+}
+
+.s73 {
+    animation-name: s73;
+}
+
+@keyframes s73 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg) rotateZ(-90deg);
+    }
+}
+
+.s74 {
+    animation-name: s74;
+}
+
+@keyframes s74 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(180deg) rotateX(90deg);
+    }
+}
+
+.s81 {
+    animation-name: s81;
+}
+
+@keyframes s81 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg) rotateZ(90deg);
+    }
+}
+
+.s82 {
+    animation-name: s82;
+}
+
+@keyframes s82 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg) rotateY(90deg);
+    }
+}
+
+.s83 {
+    animation-name: s83;
+}
+
+@keyframes s83 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s84 {
+    animation-name: s84;
+}
+
+@keyframes s84 {
+    from {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(90deg) rotateZ(-90deg) rotateY(-90deg);
+    }
+}
+
+.s91 {
+    animation-name: s91;
+}
+
+@keyframes s91 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg) rotateX(-90deg);
+    }
+}
+
+.s92 {
+    animation-name: s92;
+}
+
+@keyframes s92 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg) rotateZ(90deg);
+    }
+}
+
+.s93 {
+    animation-name: s93;
+}
+
+@keyframes s93 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg) rotateX(90deg);
+    }
+}
+
+.s94 {
+    animation-name: s94;
+}
+
+@keyframes s94 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg) rotateZ(-90deg);
+    }
+}
+
+.s101 {
+    animation-name: s101;
+}
+
+@keyframes s101 {
+    from {
+        transform: var(--dt) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg);
+    }
+}
+
+.s102 {
+    animation-name: s102;
+}
+
+@keyframes s102 {
+    from {
+        transform: var(--dt) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateY(-90deg);
+    }
+}
+
+.s103 {
+    animation-name: s103;
+}
+
+@keyframes s103 {
+    from {
+        transform: var(--dt) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(90deg);
+    }
+}
+
+.s104 {
+    animation-name: s104;
+}
+
+@keyframes s104 {
+    from {
+        transform: var(--dt) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateY(90deg);
+    }
+}
+
+.s111 {
+    animation-name: s111;
+}
+
+@keyframes s111 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg) rotateX(-90deg);
+    }
+}
+
+.s112 {
+    animation-name: s112;
+}
+
+@keyframes s112 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s113 {
+    animation-name: s113;
+}
+
+@keyframes s113 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg) rotateX(90deg);
+    }
+}
+
+.s114 {
+    animation-name: s114;
+}
+
+@keyframes s114 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(-90deg) rotateZ(90deg);
+    }
+}
+
+.s121 {
+    animation-name: s121;
+}
+
+@keyframes s121 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg) rotateX(-90deg);
+    }
+}
+
+.s122 {
+    animation-name: s122;
+}
+
+@keyframes s122 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg) rotateY(90deg);
+    }
+}
+
+.s123 {
+    animation-name: s123;
+}
+
+@keyframes s123 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg) rotateX(90deg);
+    }
+}
+
+.s124 {
+    animation-name: s124;
+}
+
+@keyframes s124 {
+    from {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(90deg) rotateX(180deg) rotateY(-90deg);
+    }
+}
+
+.s131 {
+    animation-name: s131;
+}
+
+@keyframes s131 {
+    from {
+        transform: var(--dt) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s132 {
+    animation-name: s132;
+}
+
+@keyframes s132 {
+    from {
+        transform: var(--dt) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateX(90deg);
+    }
+}
+
+.s133 {
+    animation-name: s133;
+}
+
+@keyframes s133 {
+    from {
+        transform: var(--dt) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg);
+    }
+}
+
+.s134 {
+    animation-name: s134;
+}
+
+@keyframes s134 {
+    from {
+        transform: var(--dt) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateX(-90deg);
+    }
+}
+
+.s141 {
+    animation-name: s141;
+}
+
+@keyframes s141 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s142 {
+    animation-name: s142;
+}
+
+@keyframes s142 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg) rotateY(90deg);
+    }
+}
+
+.s143 {
+    animation-name: s143;
+}
+
+@keyframes s143 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg) rotateZ(90deg);
+    }
+}
+
+.s144 {
+    animation-name: s144;
+}
+
+@keyframes s144 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(-90deg) rotateY(-90deg);
+    }
+}
+
+.s151 {
+    animation-name: s151;
+}
+
+@keyframes s151 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg) rotateZ(-90deg);
+    }
+}
+
+.s152 {
+    animation-name: s152;
+}
+
+@keyframes s152 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg) rotateX(-90deg);
+    }
+}
+
+.s153 {
+    animation-name: s153;
+}
+
+@keyframes s153 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg) rotateZ(90deg);
+    }
+}
+
+.s154 {
+    animation-name: s154;
+}
+
+@keyframes s154 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(180deg) rotateX(90deg);
+    }
+}
+
+.s161 {
+    animation-name: s161;
+}
+
+@keyframes s161 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg) rotateZ(-90deg);
+    }
+}
+
+.s162 {
+    animation-name: s162;
+}
+
+@keyframes s162 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg) rotateY(-90deg);
+    }
+}
+
+.s163 {
+    animation-name: s163;
+}
+
+@keyframes s163 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg) rotateZ(90deg);
+    }
+}
+
+.s164 {
+    animation-name: s164;
+}
+
+@keyframes s164 {
+    from {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(-90deg) rotateZ(90deg) rotateY(90deg);
+    }
+}
+
+.s171 {
+    animation-name: s171;
+}
+
+@keyframes s171 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg) rotateX(90deg);
+    }
+}
+
+.s172 {
+    animation-name: s172;
+}
+
+@keyframes s172 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg) rotateZ(90deg);
+    }
+}
+
+.s173 {
+    animation-name: s173;
+}
+
+@keyframes s173 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg) rotateX(-90deg);
+    }
+}
+
+.s174 {
+    animation-name: s174;
+}
+
+@keyframes s174 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s181 {
+    animation-name: s181;
+}
+
+@keyframes s181 {
+    from {
+        transform: var(--dt) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg);
+    }
+}
+
+.s182 {
+    animation-name: s182;
+}
+
+@keyframes s182 {
+    from {
+        transform: var(--dt) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateY(90deg);
+    }
+}
+
+.s183 {
+    animation-name: s183;
+}
+
+@keyframes s183 {
+    from {
+        transform: var(--dt) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(-90deg);
+    }
+}
+
+.s184 {
+    animation-name: s184;
+}
+
+@keyframes s184 {
+    from {
+        transform: var(--dt) rotateZ(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateY(-90deg);
+    }
+}
+
+.s191 {
+    animation-name: s191;
+}
+
+@keyframes s191 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg) rotateX(90deg);
+    }
+}
+
+.s192 {
+    animation-name: s192;
+}
+
+@keyframes s192 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg) rotateZ(-90deg);
+    }
+}
+
+.s193 {
+    animation-name: s193;
+}
+
+@keyframes s193 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg) rotateX(-90deg);
+    }
+}
+
+.s194 {
+    animation-name: s194;
+}
+
+@keyframes s194 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(90deg) rotateZ(90deg);
+    }
+}
+
+.s201 {
+    animation-name: s201;
+}
+
+@keyframes s201 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg) rotateX(90deg);
+    }
+}
+
+.s202 {
+    animation-name: s202;
+}
+
+@keyframes s202 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg) rotateY(-90deg);
+    }
+}
+
+.s203 {
+    animation-name: s203;
+}
+
+@keyframes s203 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg) rotateX(-90deg);
+    }
+}
+
+.s204 {
+    animation-name: s204;
+}
+
+@keyframes s204 {
+    from {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(-90deg) rotateX(180deg) rotateY(90deg);
+    }
+}
+
+.s211 {
+    animation-name: s211;
+}
+
+@keyframes s211 {
+    from {
+        transform: var(--dt) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg);
+    }
+}
+
+.s212 {
+    animation-name: s212;
+}
+
+@keyframes s212 {
+    from {
+        transform: var(--dt) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateX(90deg);
+    }
+}
+
+.s213 {
+    animation-name: s213;
+}
+
+@keyframes s213 {
+    from {
+        transform: var(--dt) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg);
+    }
+}
+
+.s214 {
+    animation-name: s214;
+}
+
+@keyframes s214 {
+    from {
+        transform: var(--dt) rotateX(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateX(-90deg);
+    }
+}
+
+.s221 {
+    animation-name: s221;
+}
+
+@keyframes s221 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg) rotateY(90deg);
+    }
+}
+
+.s222 {
+    animation-name: s222;
+}
+
+@keyframes s222 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg) rotateZ(90deg);
+    }
+}
+
+.s223 {
+    animation-name: s223;
+}
+
+@keyframes s223 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg) rotateY(-90deg);
+    }
+}
+
+.s224 {
+    animation-name: s224;
+}
+
+@keyframes s224 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(90deg) rotateZ(-90deg);
+    }
+}
+
+.s231 {
+    animation-name: s231;
+}
+
+@keyframes s231 {
+    from {
+        transform: var(--dt) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(180deg) rotateY(90deg);
+    }
+}
+
+.s232 {
+    animation-name: s232;
+}
+
+@keyframes s232 {
+    from {
+        transform: var(--dt) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(180deg) rotateX(-90deg);
+    }
+}
+
+.s233 {
+    animation-name: s233;
+}
+
+@keyframes s233 {
+    from {
+        transform: var(--dt) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(180deg) rotateY(-90deg);
+    }
+}
+
+.s234 {
+    animation-name: s234;
+}
+
+@keyframes s234 {
+    from {
+        transform: var(--dt) rotateZ(180deg);
+    }
+
+    to {
+        transform: var(--dt) rotateZ(180deg) rotateX(90deg);
+    }
+}
+
+.s241 {
+    animation-name: s241;
+}
+
+@keyframes s241 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg) rotateY(90deg);
+    }
+}
+
+.s242 {
+    animation-name: s242;
+}
+
+@keyframes s242 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg) rotateZ(-90deg);
+    }
+}
+
+.s243 {
+    animation-name: s243;
+}
+
+@keyframes s243 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg) rotateY(-90deg);
+    }
+}
+
+.s244 {
+    animation-name: s244;
+}
+
+@keyframes s244 {
+    from {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg);
+    }
+
+    to {
+        transform: var(--dt) rotateX(180deg) rotateY(-90deg) rotateZ(90deg);
+    }
+}
