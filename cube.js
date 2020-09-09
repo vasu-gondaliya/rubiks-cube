@@ -12,6 +12,14 @@ let sideArray =
     ];
 let faceArray =
     ["3", "2", "1", "4", "7", "8", "9", "6"];
+
+let moves = ["R", "L", "U", "D", "F", "B"];
+
+let direction_index = new Map();
+for (let i = 0; i < 6; i++) {
+    direction_index.set(direction[i][0], i);
+
+}
 function turn(index, face) {
     let faceColorArray = [];
     for (let i = 0; i < 8; i++) {
@@ -32,11 +40,7 @@ function turn(index, face) {
         document.getElementById("x" + sideArray[index][i]).style.backgroundColor = sideColorArray[(i + 3) % 12];
     }
 }
-for (let i = 0; i < 6; i++) {
-    document.querySelector(".btn ." + direction[i]).addEventListener("click", function () {
-        turn(i, direction[i][0]);
-    });
-}
+
 function resetColor() {
     for (let i = 0; i < 6; i++) {
         let pieces = document.querySelectorAll("." + direction[i] + " .part");
@@ -46,65 +50,6 @@ function resetColor() {
     }
     document.getElementById("sequence").textContent = "";
 }
-let moves = ["R", "L", "U", "D", "F", "B"];
-document.getElementById("generate").onclick = function () {
-    resetColor();
-    let sequenceArray = [];
-    for (let i = 0; i < 30; i++) {
-        let x = Math.floor(Math.random() * 6);
-        turn(x, direction[x][0]);
-        sequenceArray.push(x);
-    }
-    let sequence = "";
-    for (let i = 0; i < 30; i++) {
-        let count = 1;
-        for (let j = i + 1; j < 30; j++, i++) {
-            if (sequenceArray[j] == sequenceArray[i]) {
-                count++;
-            }
-            else {
-                break;
-            }
-        }
-        count %= 4;
-        switch (count) {
-            case 1:
-                sequence += moves[sequenceArray[i]];
-                break;
-            case 2:
-                sequence += moves[sequenceArray[i]];
-                sequence += "2";
-                break;
-            case 3:
-                sequence += moves[sequenceArray[i]];
-                sequence += "'";
-                break;
-            default:
-                break;
-        }
-        sequence += " ";
-    }
-    document.getElementById("sequence").textContent = sequence;
-};
-document.getElementById("reset").onclick = function () {
-    resetColor();
-};
-
-// function rotateCube() {
-//     let x = document.getElementById("slider-x").value;
-//     let y = document.getElementById("slider-y").value;
-//     let z = document.getElementById("slider-z").value;
-//     let a = document.getElementById("slider-angle").value + "deg";
-//     document.querySelector(".cube").style.transform = "rotate3d(" + x + "," + y + "," + z + "," + a + ")";
-//     document.getElementById("text-x").innerHTML = x;
-//     document.getElementById("text-y").innerHTML = y;
-//     document.getElementById("text-z").innerHTML = z;
-//     document.getElementById("text-angle").innerHTML = a;
-// }
-// document.getElementById("slider-x").addEventListener("input", rotateCube);
-// document.getElementById("slider-y").addEventListener("input", rotateCube);
-// document.getElementById("slider-z").addEventListener("input", rotateCube);
-// document.getElementById("slider-angle").addEventListener("input", rotateCube);
 
 let stateArray =         //left,up,right,down
     [
@@ -137,12 +82,59 @@ let stateArray =         //left,up,right,down
 let currentState = 1;
 let currentClass = "s23";
 document.onkeyup = function (e) {
-    let k = e.keyCode - 37;
-    if (k >= 0 && k <= 3) {
-        let cube = document.querySelector(".cube");
-        cube.classList.remove(currentClass);
-        currentClass = "s" + currentState + (k + 1);
-        cube.classList.add(currentClass);
-        currentState = stateArray[currentState][k];
+    if (e.key == "r" || e.key == 'l' || e.key == 'u' || e.key == "d" || e.key == "f" || e.key == "b") {
+        turn(direction_index.get(event.key), event.key);
+    }
+    else if (e.key == "g") {
+        resetColor();
+        let sequence = "";
+        let sequenceArray = [];
+        for (let i = 0; i < 30; i++) {
+            let x = Math.floor(Math.random() * 6);
+            turn(x, direction[x][0]);
+            sequenceArray.push(x);
+        }
+        for (let i = 0; i < 30; i++) {
+            let count = 1;
+            for (let j = i + 1; j < 30; j++, i++) {
+                if (sequenceArray[j] == sequenceArray[i]) {
+                    count++;
+                }
+                else {
+                    break;
+                }
+            }
+            count %= 4;
+            switch (count) {
+                case 1:
+                    sequence += moves[sequenceArray[i]];
+                    break;
+                case 2:
+                    sequence += moves[sequenceArray[i]];
+                    sequence += "2";
+                    break;
+                case 3:
+                    sequence += moves[sequenceArray[i]];
+                    sequence += "'";
+                    break;
+                default:
+                    break;
+            }
+            sequence += " ";
+        }
+        document.getElementById("sequence").textContent = sequence;
+    }
+    else if (e.key == "z") {
+        resetColor();
+    }
+    else if (e.keyCode >= 37 && e.keyCode <= 41) {
+        let k = e.keyCode - 37;
+        if (k >= 0 && k <= 3) {
+            let cube = document.querySelector(".cube");
+            cube.classList.remove(currentClass);
+            currentClass = "s" + currentState + (k + 1);
+            cube.classList.add(currentClass);
+            currentState = stateArray[currentState][k];
+        }
     }
 };

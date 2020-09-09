@@ -1,7 +1,8 @@
 .cube {
+    transform: scale3d(1.5, 1.5, 1.5);
     transform-style: preserve-3d;
     transform-origin: center;
-    margin: 100px 0 100px 150px;
+    margin: 250px auto 0;
     width: 90px;
     height: 90px;
 }
@@ -11,6 +12,7 @@
     height: 26px;
     border: 2px solid black;
     position: absolute;
+    border-radius: 2px;
 }
 
 .front>div {

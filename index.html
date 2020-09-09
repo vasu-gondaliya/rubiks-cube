@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="planeparts.css">
     <link rel="stylesheet" href="cubeanimations.css">
     <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="cube" style="transform: rotateX(-17deg) rotateY(-30deg)">
+    <div class="cube s23">
         <div class="front">
             <div class="part" id="f1"></div>
             <div class="part" id="f2"></div>
@@ -81,7 +82,65 @@
             <div class="part" id="l9"></div>
         </div>
     </div>
-    <hr>
+    <table class="instructions">
+        <caption>
+            <h3>Instructions</h3>
+        </caption>
+        <thead>
+            <th>Key</th>
+            <th>Use</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&larr;</td>
+                <td>Cube Left</td>
+            </tr>
+            <tr>
+                <td>&uarr;</td>
+                <td>Cube Up</td>
+            </tr>
+            <tr>
+                <td>&rarr;</td>
+                <td>Cube Right</td>
+            </tr>
+            <tr>
+                <td>&darr;</td>
+                <td>Cube Down</td>
+            </tr>
+            <tr>
+                <td>l</td>
+                <td>Move Left</td>
+            </tr>
+            <tr>
+                <td>u</td>
+                <td>Move Up</td>
+            </tr>
+            <tr>
+                <td>r</td>
+                <td>Move Right</td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td>Move Down</td>
+            </tr>
+            <tr>
+                <td>f</td>
+                <td>Move Front</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>Move Back</td>
+            </tr>
+            <tr>
+                <td>g</td>
+                <td>Generate Scramble</td>
+            </tr>
+            <tr>
+                <td>z</td>
+                <td>Reset</td>
+            </tr>
+        </tbody>
+    </table>
     <div class="plane-cube">
         <div class="front">
             <div class="part" id="xf1"></div>
@@ -150,52 +209,13 @@
             <div class="part" id="xl9"></div>
         </div>
     </div>
-
-    <!-- <hr>
-    <p>Rotate Cube: rotate3d(x,y,z,angle)</p>
-    <form class="rotate-slider">
-
-        <label for="slider-x">X:</label>
-        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-x">
-
-        <label for="slider-y">Y:</label>
-        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-y">
-
-
-        <label for="slider-z">Z:</label>
-        <input type="range" min="-1" max="1" step="0.05" value="1" id="slider-z">
-
-        <label for="slider-angle">Angle:</label>
-        <input type="range" min="0" max="360" step="1" value="60" id="slider-angle">
-
-    </form>
-    <div class="slider-text">
-        <span id="text-x">1</span>
-        <span id="text-y">0</span>
-        <span id="text-z">1</span>
-        <span id="text-angle">-17deg</span>
-    </div> -->
-    <hr>
-    <div class="main-section">
-        <div class="btn">
-            <p>With Green Face Front</p>
-            <button type="button" class="right">Right</button>
-            <button type="button" class="left">Left</button>
-            <button type="button" class="up">Up</button>
-            <button type="button" class="down">Down</button>
-            <button type="button" class="front">Front</button>
-            <button type="button" class="back">Back</button>
-        </div>
-        <div class="scramble-section">
-            <p>Scramble Sequence : </p>
-            <button type="button" id="generate">Generate</button>
-            <button type="button" id="reset">Reset</button>
-            <div id="sequence"></div>
-        </div>
-    </div>
-    <hr>
+    <div id="sequence"></div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<footer>
+    <div class="copyright">
+        <p>© 2020 Developed by Vasu Gondaliya</p>
+    </div>
+</footer>
 <script src="cube.js"></script>
 
 </html>

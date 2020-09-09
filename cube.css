@@ -1,32 +1,39 @@
 * {
     margin: 0;
     padding: 0;
+    color: white;
+    font-family: 'Merriweather', serif;
 }
 
-div#sequence {
+body {
+    background-image: radial-gradient(rgb(80, 80, 80), black);
+    background-repeat: no-repeat;
+    height: 60vh;
+}
+
+#sequence {
     font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-hr {
-    margin: 5px;
-}
-
-input {
-    margin: 5px;
-}
-
-button {
-    margin: 5px;
-}
-
-.slider-text span {
-    display: inline-block;
     text-align: center;
-    width: 156px;
 }
 
-.main-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.instructions {
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    line-height: 1.4rem;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    border-spacing: 5px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
 }
