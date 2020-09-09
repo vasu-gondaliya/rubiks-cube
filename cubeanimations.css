@@ -1,4 +1,4 @@
-* {
+.cube {
     animation-timing-function: linear;
     animation-fill-mode: forwards;
     animation-duration: 0.2s;

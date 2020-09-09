@@ -12,13 +12,10 @@ let sideArray =
     ];
 let faceArray =
     ["3", "2", "1", "4", "7", "8", "9", "6"];
-
 let moves = ["R", "L", "U", "D", "F", "B"];
-
 let direction_index = new Map();
 for (let i = 0; i < 6; i++) {
     direction_index.set(direction[i][0], i);
-
 }
 function turn(index, face) {
     let faceColorArray = [];
@@ -40,7 +37,6 @@ function turn(index, face) {
         document.getElementById("x" + sideArray[index][i]).style.backgroundColor = sideColorArray[(i + 3) % 12];
     }
 }
-
 function resetColor() {
     for (let i = 0; i < 6; i++) {
         let pieces = document.querySelectorAll("." + direction[i] + " .part");
@@ -50,7 +46,6 @@ function resetColor() {
     }
     document.getElementById("sequence").textContent = "";
 }
-
 let stateArray =         //left,up,right,down
     [
         [0, 0, 0, 0],
@@ -136,5 +131,9 @@ document.onkeyup = function (e) {
             cube.classList.add(currentClass);
             currentState = stateArray[currentState][k];
         }
+    }
+    else if (e.key == "v") {
+        document.querySelector(".cube").classList.toggle("hide");
+        document.querySelector(".plane-cube").classList.toggle("hide");
     }
 };
