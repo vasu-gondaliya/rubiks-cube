@@ -12,12 +12,13 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    height: 90%;
 }
 
 #sequence {
     font-size: larger;
     position: relative;
-    top: 100px;
+    top: 80px;
 }
 
 
@@ -62,7 +63,7 @@ button {
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 1fr));
     justify-items: center;
-    margin: 110px auto 0;
+    margin: 90px auto 0;
 }
 
 .sub-buttons {
@@ -76,8 +77,6 @@ button {
 
 .copyright {
     font-size: 12px;
-
-    position: absolute;
 }
 
 @media screen and (max-width:1000px) {
