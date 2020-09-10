@@ -253,3 +253,9 @@
 #d9 {
     transform: rotateX(90deg) translate3d(60px, -30px, -75px);
 }
+
+@media screen and (max-width:1000px) {
+    .cube {
+        margin: 24vh auto 0;
+    }
+}

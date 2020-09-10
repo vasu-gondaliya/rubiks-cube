@@ -253,3 +253,10 @@
 #xb9 {
     transform: translate(210px, 30px);
 }
+
+@media screen and (max-width:1000px) {
+    .plane-cube {
+        margin: 24vh auto 0;
+        transform: scale3d(0.8, 0.8, 0.8);
+    }
+}

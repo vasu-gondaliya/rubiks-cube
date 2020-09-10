@@ -17,7 +17,7 @@ body {
 #sequence {
     font-size: larger;
     position: relative;
-    bottom: 280px;
+    top: 100px;
 }
 
 
@@ -58,7 +58,7 @@ button {
 }
 
 .buttons {
-    /* visibility: hidden; */
+    visibility: hidden;
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 1fr));
     justify-items: center;
@@ -74,6 +74,12 @@ button {
     display: none;
 }
 
+.copyright {
+    font-size: 12px;
+
+    position: absolute;
+}
+
 @media screen and (max-width:1000px) {
     table {
         visibility: hidden;
@@ -83,11 +89,7 @@ button {
         visibility: visible;
     }
 
-    .cube {
-        margin: 100px auto 0;
-    }
-
-    .plane-cube {
-        margin: 100px auto 0;
+    .buttons {
+        margin: 25vh auto 0;
     }
 }
