@@ -18,20 +18,32 @@ body {
     top: 130px;
 }
 
-.instructions {
-    position: absolute;
-    right: 10px;
-    top: 130px;
-    line-height: 1.4rem;
-    text-align: center;
-}
 
 table,
 th,
 td {
     border: 1px solid white;
     border-collapse: collapse;
+    line-height: 1.4rem;
     border-spacing: 5px;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 4px;
+}
+
+.instructions {
+    position: absolute;
+    right: 10px;
+    top: 150px;
+}
+
+.face-moves {
+    position: absolute;
+    left: 10px;
+    top: 150px;
 }
 
 .copyright {

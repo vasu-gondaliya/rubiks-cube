@@ -116,7 +116,6 @@ y 90
 z -90
 y -90
 
-
 2 z 90 x 90
 x -90
 z 90
@@ -240,35 +239,4 @@ let stateArray =         //left,up,right,down
         [23, 17, 21, 9],
         [24, 7, 22, 15],
         [21, 11, 23, 19]
-    ];
-
-let stateTransformArray =
-    [
-        "0",
-        
-		
-		"",
-        "rotateY(-90deg)",
-        "rotateY(180deg)",
-        "rotateY(90deg)",
-        "rotateX(90deg)",
-        "rotateX(90deg) rotateZ(90deg)",
-        "rotateX(90deg) rotateZ(180deg)",
-        "rotateX(90deg) rotateZ(-90deg)",
-        "rotateZ(90deg) rotateX(90deg)",
-        "rotateZ(90deg)",
-        "rotateZ(90deg) rotateX(-90deg)",
-        "rotateZ(90deg) rotateX(180deg)",
-        "rotateX(-90deg)",
-        "rotateX(-90deg) rotateZ(-90deg)",
-        "rotateX(-90deg) rotateZ(180deg)",
-        "rotateX(-90deg) rotateZ(90deg)",
-        "rotateZ(-90deg) rotateX(-90deg)",
-        "rotateZ(-90deg)",
-        "rotateZ(-90deg) rotateX(90deg)",
-        "rotateZ(-90deg) rotateX(180deg)",
-        "rotateX(180deg)",
-        "rotateX(180deg) rotateY(90deg)",
-        "rotateZ(180deg)",
-        "rotateX(180deg) rotateY(-90deg)"
     ];

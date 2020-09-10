@@ -76,64 +76,85 @@ let stateArray =         //left,up,right,down
     ];
 let currentState = 1;
 let currentClass = "s23";
-document.onkeyup = function (e) {
-    if (e.key == "r" || e.key == 'l' || e.key == 'u' || e.key == "d" || e.key == "f" || e.key == "b") {
-        turn(direction_index.get(event.key), event.key);
-    }
-    else if (e.key == "g") {
-        resetColor();
-        let sequence = "";
-        let sequenceArray = [];
-        for (let i = 0; i < 30; i++) {
-            let x = Math.floor(Math.random() * 6);
-            turn(x, direction[x][0]);
-            sequenceArray.push(x);
-        }
-        for (let i = 0; i < 30; i++) {
-            let count = 1;
-            for (let j = i + 1; j < 30; j++, i++) {
-                if (sequenceArray[j] == sequenceArray[i]) {
-                    count++;
-                }
-                else {
-                    break;
-                }
+document.onkeydown = function () {    //Main EventListner for keypress
+    switch (event.key) {
+        case "r":
+        case "l":
+        case "u":
+        case "d":
+        case "f":
+        case "b":
+            turn(direction_index.get(event.key), event.key);
+            break;
+        case "R":
+        case "L":
+        case "U":
+        case "D":
+        case "F":
+        case "B":
+            let m = (event.key).toLowerCase();
+            for (let i = 0; i < 3; i++) {
+                turn(direction_index.get(m), m);
             }
-            count %= 4;
-            switch (count) {
-                case 1:
-                    sequence += moves[sequenceArray[i]];
-                    break;
-                case 2:
-                    sequence += moves[sequenceArray[i]];
-                    sequence += "2";
-                    break;
-                case 3:
-                    sequence += moves[sequenceArray[i]];
-                    sequence += "'";
-                    break;
-                default:
-                    break;
+            break;
+        case "g":
+            resetColor();
+            let sequence = "";
+            let sequenceArray = [];
+            for (let i = 0; i < 30; i++) {
+                let x = Math.floor(Math.random() * 6);
+                turn(x, direction[x][0]);
+                sequenceArray.push(x);
             }
-            sequence += " ";
-        }
-        document.getElementById("sequence").textContent = sequence;
-    }
-    else if (e.key == "z") {
-        resetColor();
-    }
-    else if (e.keyCode >= 37 && e.keyCode <= 41) {
-        let k = e.keyCode - 37;
-        if (k >= 0 && k <= 3) {
+            for (let i = 0; i < 30; i++) {
+                let count = 1;
+                for (let j = i + 1; j < 30; j++, i++) {
+                    if (sequenceArray[j] == sequenceArray[i]) {
+                        count++;
+                    }
+                    else {
+                        break;
+                    }
+                }
+                count %= 4;
+                switch (count) {
+                    case 1:
+                        sequence += moves[sequenceArray[i]];
+                        break;
+                    case 2:
+                        sequence += moves[sequenceArray[i]];
+                        sequence += "2";
+                        break;
+                    case 3:
+                        sequence += moves[sequenceArray[i]];
+                        sequence += "'";
+                        break;
+                    default:
+                        break;
+                }
+                sequence += " ";
+            }
+            document.getElementById("sequence").textContent = sequence;
+            break;
+        case "z":
+            resetColor();
+            break;
+        case "ArrowLeft":
+        case "ArrowUp":
+        case "ArrowRight":
+        case "ArrowDown":
+            let k = event.keyCode - 37;
             let cube = document.querySelector(".cube");
             cube.classList.remove(currentClass);
             currentClass = "s" + currentState + (k + 1);
             cube.classList.add(currentClass);
             currentState = stateArray[currentState][k];
-        }
-    }
-    else if (e.key == "v") {
-        document.querySelector(".cube").classList.toggle("hide");
-        document.querySelector(".plane-cube").classList.toggle("hide");
+            break;
+        case "v":
+            document.querySelector(".cube").classList.toggle("hide");
+            document.querySelector(".plane-cube").classList.toggle("hide");
+            break;
+        default:
+            break;
     }
 };
