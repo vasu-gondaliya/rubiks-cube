@@ -70,13 +70,6 @@ button {
     grid-template-columns: 1fr;
 }
 
-.copyright {
-    font-size: 12px;
-
-    position: absolute;
-    bottom: 10px;
-}
-
 .hide {
     display: none;
 }
