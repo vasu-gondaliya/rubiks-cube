@@ -58,11 +58,11 @@ button {
 }
 
 .buttons {
-    visibility: hidden;
+    /* visibility: hidden; */
     display: grid;
     grid-template-columns: repeat(3, minmax(100px, 1fr));
     justify-items: center;
-    margin: 250px auto 0;
+    margin: 110px auto 0;
 }
 
 .sub-buttons {
