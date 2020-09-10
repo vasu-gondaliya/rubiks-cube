@@ -2,7 +2,7 @@
     transform: scale3d(1, 1, 1);
     transform-style: preserve-3d;
     transform-origin: center;
-    margin: 250px auto 0;
+    margin: 200px auto 0;
     width: 80px;
     height: 90px;
 }

@@ -37,6 +37,15 @@ function turn(index, face) {
         document.getElementById("x" + sideArray[index][i]).style.backgroundColor = sideColorArray[(i + 3) % 12];
     }
 }
+function faceTurn(key) {
+    turn(direction_index.get(key), key);
+}
+function faceTurnPrime(key) {
+    let m = (key).toLowerCase();
+    for (let i = 0; i < 3; i++) {
+        turn(direction_index.get(m), m);
+    }
+}
 function resetColor() {
     for (let i = 0; i < 6; i++) {
         let pieces = document.querySelectorAll("." + direction[i] + " .part");
@@ -44,7 +53,46 @@ function resetColor() {
             pieces[j].style.backgroundColor = mainColor[i];
         }
     }
-    document.getElementById("sequence").textContent = "";
+    document.getElementById("sequence").innerHTML = "&nbsp;";
+}
+function generate() {
+    resetColor();
+    let sequence = "";
+    let sequenceArray = [];
+    for (let i = 0; i < 30; i++) {
+        let x = Math.floor(Math.random() * 6);
+        turn(x, direction[x][0]);
+        sequenceArray.push(x);
+    }
+    for (let i = 0; i < 30; i++) {
+        let count = 1;
+        for (let j = i + 1; j < 30; j++, i++) {
+            if (sequenceArray[j] == sequenceArray[i]) {
+                count++;
+            }
+            else {
+                break;
+            }
+        }
+        count %= 4;
+        switch (count) {
+            case 1:
+                sequence += moves[sequenceArray[i]];
+                break;
+            case 2:
+                sequence += moves[sequenceArray[i]];
+                sequence += "2";
+                break;
+            case 3:
+                sequence += moves[sequenceArray[i]];
+                sequence += "'";
+                break;
+            default:
+                break;
+        }
+        sequence += " ";
+    }
+    document.getElementById("sequence").textContent = sequence;
 }
 let stateArray =         //left,up,right,down
     [
@@ -74,8 +122,21 @@ let stateArray =         //left,up,right,down
         [24, 7, 22, 15],
         [21, 11, 23, 19]
     ];
+
 let currentState = 1;
 let currentClass = "s23";
+function cubeTurn(keycode) {
+    let k = keycode - 37;
+    let cube = document.querySelector(".cube");
+    cube.classList.remove(currentClass);
+    currentClass = "s" + currentState + (k + 1);
+    cube.classList.add(currentClass);
+    currentState = stateArray[currentState][k];
+}
+function changeView() {
+    document.querySelector(".cube").classList.toggle("hide");
+    document.querySelector(".plane-cube").classList.toggle("hide");
+}
 document.onkeydown = function () {    //Main EventListner for keypress
     switch (event.key) {
         case "r":
@@ -84,7 +145,7 @@ document.onkeydown = function () {    //Main EventListner for keypress
         case "d":
         case "f":
         case "b":
-            turn(direction_index.get(event.key), event.key);
+            faceTurn(event.key);
             break;
         case "R":
         case "L":
@@ -92,49 +153,10 @@ document.onkeydown = function () {    //Main EventListner for keypress
         case "D":
         case "F":
         case "B":
-            let m = (event.key).toLowerCase();
-            for (let i = 0; i < 3; i++) {
-                turn(direction_index.get(m), m);
-            }
+            faceTurnPrime(event.key);
             break;
         case "g":
-            resetColor();
-            let sequence = "";
-            let sequenceArray = [];
-            for (let i = 0; i < 30; i++) {
-                let x = Math.floor(Math.random() * 6);
-                turn(x, direction[x][0]);
-                sequenceArray.push(x);
-            }
-            for (let i = 0; i < 30; i++) {
-                let count = 1;
-                for (let j = i + 1; j < 30; j++, i++) {
-                    if (sequenceArray[j] == sequenceArray[i]) {
-                        count++;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                count %= 4;
-                switch (count) {
-                    case 1:
-                        sequence += moves[sequenceArray[i]];
-                        break;
-                    case 2:
-                        sequence += moves[sequenceArray[i]];
-                        sequence += "2";
-                        break;
-                    case 3:
-                        sequence += moves[sequenceArray[i]];
-                        sequence += "'";
-                        break;
-                    default:
-                        break;
-                }
-                sequence += " ";
-            }
-            document.getElementById("sequence").textContent = sequence;
+            generate();
             break;
         case "z":
             resetColor();
@@ -143,18 +165,39 @@ document.onkeydown = function () {    //Main EventListner for keypress
         case "ArrowUp":
         case "ArrowRight":
         case "ArrowDown":
-            let k = event.keyCode - 37;
-            let cube = document.querySelector(".cube");
-            cube.classList.remove(currentClass);
-            currentClass = "s" + currentState + (k + 1);
-            cube.classList.add(currentClass);
-            currentState = stateArray[currentState][k];
+            cubeTurn(event.keyCode);
             break;
         case "v":
-            document.querySelector(".cube").classList.toggle("hide");
-            document.querySelector(".plane-cube").classList.toggle("hide");
+            changeView();
             break;
         default:
             break;
     }
 };
+
+document.querySelectorAll(".face-btn button").forEach(element => {
+    element.onclick = () => {
+        faceTurn(element.classList[0][0]);
+    };
+});
+document.querySelectorAll(".face-prime-btn button").forEach(element => {
+    element.onclick = () => {
+        faceTurnPrime(element.classList[0][0]);
+    };
+});
+
+let cubeKeyCode = new Map();
+let cubeKey = ["l", "u", "r", "d"];
+for (let i = 0; i < 4; i++) {
+    cubeKeyCode.set(cubeKey[i], i + 37);
+}
+
+document.querySelectorAll(".cube-turn").forEach(element => {
+    element.onclick = () => {
+        cubeTurn(cubeKeyCode.get(element.classList[0][0]));
+    };
+});
+
+document.querySelector(".generate").onclick = generate;
+document.querySelector(".reset").onclick = resetColor;
+document.querySelector(".view").onclick = changeView;

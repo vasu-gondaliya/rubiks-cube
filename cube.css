@@ -3,19 +3,21 @@
     padding: 0;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 body {
     background-image: radial-gradient(rgb(80, 80, 80), black);
     background-repeat: no-repeat;
-    height: 60vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #sequence {
     font-size: larger;
-    text-align: center;
     position: relative;
-    top: 130px;
+    bottom: 280px;
 }
 
 
@@ -37,21 +39,62 @@ td {
 .instructions {
     position: absolute;
     right: 10px;
-    top: 150px;
+    top: 100px;
 }
 
 .face-moves {
     position: absolute;
     left: 10px;
-    top: 150px;
+    top: 100px;
+}
+
+button {
+    color: white;
+    width: 90px;
+    height: 25px;
+    background-color: transparent;
+    margin: 2px 0;
+    border-radius: 10px;
+}
+
+.buttons {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    justify-items: center;
+    margin: 250px auto 0;
+}
+
+.sub-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .copyright {
-    position: absolute;
-    bottom: 0;
     font-size: 12px;
+
+    position: absolute;
+    bottom: 10px;
 }
 
 .hide {
     display: none;
+}
+
+@media screen and (max-width:1000px) {
+    table {
+        visibility: hidden;
+    }
+
+    .buttons {
+        visibility: visible;
+    }
+
+    .cube {
+        margin: 100px auto 0;
+    }
+
+    .plane-cube {
+        margin: 100px auto 0;
+    }
 }
