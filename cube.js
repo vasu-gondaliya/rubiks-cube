@@ -46,15 +46,6 @@ function faceTurnPrime(key) {
         turn(direction_index.get(m), m);
     }
 }
-function resetColor() {
-    for (let i = 0; i < 6; i++) {
-        let pieces = document.querySelectorAll("." + direction[i] + " .part");
-        for (let j = 0; j < 18; j++) {
-            pieces[j].style.backgroundColor = mainColor[i];
-        }
-    }
-    document.getElementById("sequence").innerHTML = "&nbsp;";
-}
 function generate() {
     resetColor();
     let sequence = "";
@@ -137,15 +128,63 @@ function changeView() {
     document.querySelector(".cube").classList.toggle("hide");
     document.querySelector(".plane-cube").classList.toggle("hide");
 }
-document.onkeydown = function () {    //Main EventListner for keypress
-    switch (event.key) {
+function resetColor() {
+    for (let i = 0; i < 6; i++) {
+        let pieces = document.querySelectorAll("." + direction[i] + " .part");
+        for (let j = 0; j < 18; j++) {
+            pieces[j].style.backgroundColor = mainColor[i];
+        }
+    }
+    document.getElementById("sequence").innerHTML = "&nbsp;";
+    let cube = document.querySelector(".cube");
+    cube.classList.remove(currentClass);
+    currentClass="s23";
+    cube.classList.add(currentClass);
+    currentState=1;
+}
+let continueAnimation=1;
+function startAnimation(){
+    continueAnimation=1;
+    let animationInterval=setInterval(() => {
+        let randomKeysArray = [
+            ["ArrowLeft",37],
+            ["ArrowUp",38],
+            ["ArrowRight",39],
+            ["ArrowDown",40],
+            ["r",0],
+            ["l",0],
+            ["u",0],
+            ["d",0],
+            ["f",0],
+            ["b",0],
+            ["R",0],
+            ["L",0],
+            ["U",0],
+            ["D",0],
+            ["F",0],
+            ["B",0]
+          ];
+        let currentRandomMove = Math.floor(Math.random() * randomKeysArray.length);
+        checkKeyboardEventKey(randomKeysArray[currentRandomMove][0],randomKeysArray[currentRandomMove][1]);
+        if(continueAnimation==0){
+            clearInterval(animationInterval);
+        }
+    },400);
+}
+function stoptAnimation(){
+    continueAnimation=0;
+}
+
+function checkKeyboardEventKey(eventKey,eventKeyCode){
+    console.log({eventKey,eventKeyCode});
+    switch (eventKey) {
         case "r":
         case "l":
         case "u":
         case "d":
         case "f":
         case "b":
-            faceTurn(event.key);
+            faceTurn(eventKey);
             break;
         case "R":
         case "L":
@@ -153,7 +192,7 @@ document.onkeydown = function () {    //Main EventListner for keypress
         case "D":
         case "F":
         case "B":
-            faceTurnPrime(event.key);
+            faceTurnPrime(eventKey);
             break;
         case "g":
             generate();
@@ -165,14 +204,22 @@ document.onkeydown = function () {    //Main EventListner for keypress
         case "ArrowUp":
         case "ArrowRight":
         case "ArrowDown":
-            cubeTurn(event.keyCode);
+            cubeTurn(eventKeyCode);
             break;
         case "v":
             changeView();
             break;
+        case "a":
+            startAnimation();
+            break;
+        case "A":
+            stoptAnimation();
         default:
             break;
     }
+}
+document.onkeydown = function () {    //Main EventListner for keypress
+    checkKeyboardEventKey(event.key,event.keyCode);
 };
 
 document.querySelectorAll(".face-btn button").forEach(element => {
