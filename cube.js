@@ -248,3 +248,5 @@ document.querySelectorAll(".cube-turn").forEach(element => {
 document.querySelector(".generate").onclick = generate;
 document.querySelector(".reset").onclick = resetColor;
 document.querySelector(".view").onclick = changeView;
+document.querySelector(".start-animation").onclick = startAnimation;
+document.querySelector(".stop-animation").onclick = stoptAnimation;
