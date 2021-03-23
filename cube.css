@@ -1,22 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 body {
-    background-image: radial-gradient(rgb(80, 80, 80), black);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    height:100vh;
+  background-image: radial-gradient(rgb(80, 80, 80), black);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
 }
 
 #sequence {
-    align-items: center;
+  align-items: center;
   position: relative;
 }
 #seq {
@@ -26,47 +26,45 @@ body {
   bottom: 0.6rem;
   width: 100%;
 }
-
 table,
 th,
 td {
-    border: 1px solid white;
-    border-collapse: collapse;
-    line-height: 1.4rem;
-    border-spacing: 5px;
-    text-align: center;
+  border: 1px solid white;
+  border-collapse: collapse;
+  line-height: 1.4rem;
+  border-spacing: 5px;
+  text-align: center;
 }
 
 th,
 td {
-    padding: 4px;
+  padding: 4px;
 }
 
 .instructions {
-    position: absolute;
-    right: 10px;
-    top: 100px;
+  position: absolute;
+  right: 10px;
+  top: 100px;
 }
 
 .face-moves {
-    position: absolute;
-    left: 10px;
-    top: 100px;
+  position: absolute;
+  left: 10px;
+  top: 100px;
 }
 
 button {
-    color: white;
+  color: white;
   background-color: transparent;
   border-radius: 5px;
 }
 
 .buttons {
-    visibility: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3.5fr 5fr;
 }
-
 .sub-buttons button {
   margin: 3%;
 }
@@ -110,11 +108,11 @@ button {
   color: rgb(160, 160, 160);
 }
 .hide {
-    display: none;
+  display: none;
 }
 
 .copyright {
-    font-size: 12px;
+  font-size: 12px;
 }
 .left {
   grid-row: 2/3;
@@ -140,24 +138,24 @@ button {
   grid-row: 4/5;
   grid-column: 2/3;
 }
-@media screen and (max-width:650px) 
-    body {
+
+@media screen and (max-width: 1000px) {
+  body {
     display: grid;
-    grid-template-rows: 45vh 10vh 45vh;
+    grid-template-rows: 5fr 1fr 5fr;
     height: 100vh;
   }
-    table {
-        visibility: hidden;
-    }
-    .cube {
+  table {
+    visibility: hidden;
+  }
+  .cube {
     grid-row: 1/2;
   }
   #sequence {
     grid-row: 2/3;
   }
-    .buttons {
-        visibility: visible;
-        grid-row: 3/4;
-    }
-
+  .buttons {
+    visibility: visible;
+    grid-row: 3/4;
+  }
 }
