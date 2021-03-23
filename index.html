@@ -236,9 +236,12 @@
             <div class="part" id="xl9"></div>
         </div>
     </div>
-    <div id="sequence">&nbsp;</div>
+    <div id="sequence">
+      <div id="seq">&nbsp;</div>
+    </div>
     <div class="buttons">
         <div class="sub-buttons face-btn">
+            <div class="btn-title">Clockwise</div>
             <button type="button" class="left">L</button>
             <button type="button" class="up">U</button>
             <button type="button" class="right">R</button>
@@ -247,17 +250,46 @@
             <button type="button" class="back">B</button>
         </div>
         <div class="sub-buttons main-btn">
-            <button type="button" class="left cube-turn">&larr;</button>
-            <button type="button" class="up cube-turn">&uarr;</button>
-            <button type="button" class="right cube-turn">&rarr;</button>
-            <button type="button" class="down cube-turn">&darr;</button>
-            <button type="button" class="generate">G</button>
-            <button type="button" class="reset">Z</button>
-            <button type="button" class="view">V</button>
-            <button type="button" class="start-animation">A</button>
-            <button type="button" class="stop-animation">A'</button>
+        <div class="view-btn">
+          <button
+            type="button"
+            class="left cube-turn"
+            style="grid-row: 2/3; grid-column: 1/2"
+          >
+            &larr;
+          </button>
+          <button
+            type="button"
+            class="up cube-turn"
+            style="grid-row: 1/2; grid-column: 2/3"
+          >
+            &uarr;
+          </button>
+          <button
+            type="button"
+            class="right cube-turn"
+            style="grid-row: 2/3; grid-column: 3/4"
+          >
+            &rarr;
+          </button>
+          <button
+            type="button"
+            class="down cube-turn"
+            style="grid-row: 2/3; grid-column: 2/3"
+          >
+            &darr;
+          </button>
         </div>
+        <div class="misc-btn">
+          <button type="button" class="generate">Scramble</button>
+          <button type="button" class="reset">Reset</button>
+          <button type="button" class="view">View</button>
+          <button type="button" class="start-animation">Start Animation</button>
+          <button type="button" class="stop-animation">Stop Animation</button>
+        </div>
+      </div>
         <div class="sub-buttons face-prime-btn">
+            <div class="btn-title">Anti-clockwise</div>
             <button type="button" class="left">L'</button>
             <button type="button" class="up">U'</button>
             <button type="button" class="right">R'</button>
