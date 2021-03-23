@@ -140,10 +140,10 @@ button {
   grid-row: 4/5;
   grid-column: 2/3;
 }
-@media screen and (max-width:1000px) 
+@media screen and (max-width:650px) 
     body {
     display: grid;
-    grid-template-rows: 5fr 1fr 5fr;
+    grid-template-rows: 45vh 10vh 45vh;
     height: 100vh;
   }
     table {
