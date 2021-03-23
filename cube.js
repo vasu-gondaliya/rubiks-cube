@@ -83,7 +83,7 @@ function generate() {
         }
         sequence += " ";
     }
-    document.getElementById("sequence").textContent = sequence;
+    document.getElementById("seq").textContent = sequence;
 }
 let stateArray =         //left,up,right,down
     [
@@ -135,7 +135,7 @@ function resetColor() {
             pieces[j].style.backgroundColor = mainColor[i];
         }
     }
-    document.getElementById("sequence").innerHTML = "&nbsp;";
+    document.getElementById("seq").innerHTML = "&nbsp;";
     let cube = document.querySelector(".cube");
     cube.classList.remove(currentClass);
     currentClass="s23";
