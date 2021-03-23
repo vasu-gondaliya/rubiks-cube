@@ -171,7 +171,7 @@ function startAnimation(){
         }
     },400);
 }
-function stoptAnimation(){
+function stopAnimation(){
     continueAnimation=0;
 }
 
@@ -213,7 +213,7 @@ function checkKeyboardEventKey(eventKey,eventKeyCode){
             startAnimation();
             break;
         case "A":
-            stoptAnimation();
+            stopAnimation();
         default:
             break;
     }
@@ -249,4 +249,4 @@ document.querySelector(".generate").onclick = generate;
 document.querySelector(".reset").onclick = resetColor;
 document.querySelector(".view").onclick = changeView;
 document.querySelector(".start-animation").onclick = startAnimation;
-document.querySelector(".stop-animation").onclick = stoptAnimation;
+document.querySelector(".stop-animation").onclick = stopAnimation;
