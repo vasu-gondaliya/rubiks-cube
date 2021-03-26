@@ -96,9 +96,7 @@ function generate() {
       default:
         break;
     }
-    sequence += " ";
-  }
-  document.getElementById("sequence").textContent = sequence;
+    document.getElementById("seq").textContent = sequence;
 }
 let stateArray =
   //left,up,right,down
@@ -150,13 +148,12 @@ function resetColor() {
     for (let j = 0; j < 18; j++) {
       pieces[j].style.backgroundColor = mainColor[i];
     }
-  }
-  document.getElementById("sequence").innerHTML = "&nbsp;";
-  let cube = document.querySelector(".cube");
-  cube.classList.remove(currentClass);
-  currentClass = "s23";
-  cube.classList.add(currentClass);
-  currentState = 1;
+    document.getElementById("seq").innerHTML = "&nbsp;";
+    let cube = document.querySelector(".cube");
+    cube.classList.remove(currentClass);
+    currentClass = "s23";
+    cube.classList.add(currentClass);
+    currentState = 1;
 }
 let continueAnimation = 0;
 function startAnimation() {
