@@ -97,63 +97,65 @@ function generate() {
         break;
     }
     document.getElementById("seq").textContent = sequence;
-}
-let stateArray =
-  //left,up,right,down
-  [
-    [0, 0, 0, 0],
-    [2, 5, 4, 13],
-    [3, 19, 1, 11],
-    [4, 15, 2, 7],
-    [1, 9, 3, 17],
-    [6, 21, 8, 1],
-    [7, 20, 5, 10],
-    [8, 3, 6, 23],
-    [5, 12, 7, 18],
-    [10, 22, 12, 4],
-    [11, 6, 9, 16],
-    [12, 2, 10, 24],
-    [9, 14, 11, 8],
-    [14, 1, 16, 21],
-    [15, 18, 13, 12],
-    [16, 23, 14, 3],
-    [13, 10, 15, 20],
-    [18, 4, 20, 22],
-    [19, 8, 17, 14],
-    [20, 24, 18, 2],
-    [17, 16, 19, 6],
-    [22, 13, 24, 5],
-    [23, 17, 21, 9],
-    [24, 7, 22, 15],
-    [21, 11, 23, 19],
-  ];
+  }
+  let stateArray =
+    //left,up,right,down
+    [
+      [0, 0, 0, 0],
+      [2, 5, 4, 13],
+      [3, 19, 1, 11],
+      [4, 15, 2, 7],
+      [1, 9, 3, 17],
+      [6, 21, 8, 1],
+      [7, 20, 5, 10],
+      [8, 3, 6, 23],
+      [5, 12, 7, 18],
+      [10, 22, 12, 4],
+      [11, 6, 9, 16],
+      [12, 2, 10, 24],
+      [9, 14, 11, 8],
+      [14, 1, 16, 21],
+      [15, 18, 13, 12],
+      [16, 23, 14, 3],
+      [13, 10, 15, 20],
+      [18, 4, 20, 22],
+      [19, 8, 17, 14],
+      [20, 24, 18, 2],
+      [17, 16, 19, 6],
+      [22, 13, 24, 5],
+      [23, 17, 21, 9],
+      [24, 7, 22, 15],
+      [21, 11, 23, 19],
+    ];
 
-let currentState = 1;
-let currentClass = "s23";
-function cubeTurn(keycode) {
-  let k = keycode - 37;
-  let cube = document.querySelector(".cube");
-  cube.classList.remove(currentClass);
-  currentClass = "s" + currentState + (k + 1);
-  cube.classList.add(currentClass);
-  currentState = stateArray[currentState][k];
-}
-function changeView() {
-  document.querySelector(".cube").classList.toggle("hide");
-  document.querySelector(".plane-cube").classList.toggle("hide");
-}
-function resetColor() {
-  for (let i = 0; i < 6; i++) {
-    let pieces = document.querySelectorAll("." + direction[i] + " .part");
-    for (let j = 0; j < 18; j++) {
-      pieces[j].style.backgroundColor = mainColor[i];
-    }
-    document.getElementById("seq").innerHTML = "&nbsp;";
+  let currentState = 1;
+  let currentClass = "s23";
+  function cubeTurn(keycode) {
+    let k = keycode - 37;
     let cube = document.querySelector(".cube");
     cube.classList.remove(currentClass);
-    currentClass = "s23";
+    currentClass = "s" + currentState + (k + 1);
     cube.classList.add(currentClass);
-    currentState = 1;
+    currentState = stateArray[currentState][k];
+  }
+  function changeView() {
+    document.querySelector(".cube").classList.toggle("hide");
+    document.querySelector(".plane-cube").classList.toggle("hide");
+  }
+  function resetColor() {
+    for (let i = 0; i < 6; i++) {
+      let pieces = document.querySelectorAll("." + direction[i] + " .part");
+      for (let j = 0; j < 18; j++) {
+        pieces[j].style.backgroundColor = mainColor[i];
+      }
+    }
+  }
+  document.getElementById("seq").innerHTML = "&nbsp;";
+  let cube = document.querySelector(".cube");
+  cube.classList.remove(currentClass);
+  currentClass = "s23";
+  cube.classList.add(currentClass);
+  currentState = 1;
 }
 let continueAnimation = 0;
 function startAnimation() {
