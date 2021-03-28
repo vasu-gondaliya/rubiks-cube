@@ -150,4 +150,43 @@ tbody tr td {
     border-bottom: 1px solid #e0e0e0;
 }
 
+thead th{
+    background-color: black;
+}
 
+tr:nth-child(1)
+{
+    background-color: orchid;
+}
+tr:nth-child(2)
+{
+    background-color: lime;
+}
+tr:nth-child(3)
+{
+    background-color: maroon;
+}
+tr:nth-child(4)
+{
+    background-color: green;
+}
+tr:nth-child(5)
+{
+    background-color: gray;
+}
+tr:nth-child(6)
+{
+    background-color: crimson;
+}
+tr:nth-child(7)
+{
+    background-color: purple;
+}
+tr:nth-child(8)
+{
+    background-color: darkkhaki;
+}
+tr:nth-child(9)
+{
+    background-color: darkolivegreen;
+}
