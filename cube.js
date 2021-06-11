@@ -234,6 +234,7 @@ function checkKeyboardEventKey(eventKey, eventKeyCode) {
     case "A":
       stopAnimation();
     default:
+      cerr << "ERROR: invalid input.";
       break;
   }
 }
