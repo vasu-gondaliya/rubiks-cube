@@ -7,6 +7,7 @@ let mainColor = [
   "rgb(0, 0, 255)",
 ];
 let direction = ["right", "left", "up", "down", "front", "back"];
+let direction_dc = [...direction]; // Create deep copies to prevent unwanted manipulations of the original array.
 let sideArray = [
   ["u3", "u6", "u9", "f3", "f6", "f9", "d3", "d6", "d9", "b7", "b4", "b1"],
   ["b3", "b6", "b9", "d7", "d4", "d1", "f7", "f4", "f1", "u7", "u4", "u1"],
@@ -15,14 +16,18 @@ let sideArray = [
   ["d1", "d2", "d3", "r7", "r4", "r1", "u9", "u8", "u7", "l3", "l6", "l9"],
   ["u1", "u2", "u3", "r3", "r6", "r9", "d9", "d8", "d7", "l7", "l4", "l1"],
 ];
+let sideArray_dc = [...sideArray]; // "
 let faceArray = ["3", "2", "1", "4", "7", "8", "9", "6"];
+let faceArray_dc = [...faceArray]; // "
 let moves = ["R", "L", "U", "D", "F", "B"];
+let moves_dc = [...moves]; // "
 let direction_index = new Map();
 for (let i = 0; i < 6; i++) {
   direction_index.set(direction[i][0], i);
 }
 function turn(index, face) {
   let faceColorArray = [];
+  let faceColorArray_dc = [faceColorArray]; // "
   for (let i = 0; i < 8; i++) {
     let currentElement = document.getElementById(face + faceArray[i]);
     faceColorArray.push(
@@ -38,6 +43,7 @@ function turn(index, face) {
       faceColorArray[(i + 2) % 8];
   }
   let sideColorArray = [];
+  let sideColorArray_dc = []; // "
   for (let i = 0; i < 12; i++) {
     let currentElement = document.getElementById(sideArray[index][i]);
     sideColorArray.push(
@@ -66,6 +72,7 @@ function generate() {
   resetColor();
   let sequence = "";
   let sequenceArray = [];
+  let sequenceArray_dc = [...sequenceArray]; // "
   for (let i = 0; i < 30; i++) {
     let x = Math.floor(Math.random() * 6);
     turn(x, direction[x][0]);
@@ -129,6 +136,7 @@ let stateArray =
     [24, 7, 22, 15],
     [21, 11, 23, 19],
   ];
+let stateArray_dc = [...stateArray]; // "
 
 let currentState = 1;
 let currentClass = "s23";
@@ -180,6 +188,7 @@ function startAnimation() {
       ["F", 0],
       ["B", 0],
     ];
+    let randomKeysArray_dc = [...randomKeysArray];
     let currentRandomMove = Math.floor(Math.random() * randomKeysArray.length);
     checkKeyboardEventKey(
       randomKeysArray[currentRandomMove][0],
@@ -256,6 +265,7 @@ document.querySelectorAll(".face-prime-btn button").forEach((element) => {
 
 let cubeKeyCode = new Map();
 let cubeKey = ["l", "u", "r", "d"];
+let cubeKey_dc = {...cubeKey];
 for (let i = 0; i < 4; i++) {
   cubeKeyCode.set(cubeKey[i], i + 37);
 }
