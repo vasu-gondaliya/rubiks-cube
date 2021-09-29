@@ -14,66 +14,69 @@
     border-radius: 0.01px;
 }
 
-.front>div {
+.front > div { /*green side*/
     background-color: rgb(0, 128, 0);
 }
 
-.back>div {
+.back > div { /*blue side*/
     background-color: rgb(0, 0, 255);
 }
 
-.up>div {
+.up > div { /*white side*/
     background-color: rgb(255, 255, 255);
 }
 
-.down>div {
+.down > div { /*yellow side*/
     background-color: rgb(255, 255, 0);
 }
 
-.right>div {
+.right > div { /*red side*/
     background-color: rgb(255, 0, 0);
 }
 
-.left>div {
+.left > div { /*orange side*/
     background-color: rgb(255, 140, 0);
 }
 
-#f1 {
+/*Places the cube elements*/
+/*front side as a 3x3 table (starting count from 1 and from bottom-left to top-right)*/
+#f1 { /*square (x,y) = (1,1)*/
     transform: translate3d(0px, 0px, 45px);
 }
 
-#f2 {
+#f2 { /*square (1,2)*/
     transform: translate3d(30px, 0px, 45px);
 }
 
-#f3 {
+#f3 { /*square (1,3)*/
     transform: translate3d(60px, 0px, 45px);
 }
 
-#f4 {
+#f4 { /*square (2,1)*/
     transform: translate3d(0px, 30px, 45px);
 }
 
-#f5 {
+#f5 { /*square (2,2)*/
     transform: translate3d(30px, 30px, 45px);
 }
 
-#f6 {
+#f6 { /*square (2,3)*/
     transform: translate3d(60px, 30px, 45px);
 }
 
-#f7 {
+#f7 { /*square (3,1)*/
     transform: translate3d(0px, 60px, 45px);
 }
 
-#f8 {
+#f8 { /*square (3,2)*/
     transform: translate3d(30px, 60px, 45px);
 }
 
-#f9 {
+#f9 { /*square (3,3)*/
     transform: translate3d(60px, 60px, 45px);
 }
 
+/*back side*/
 #b1 {
     transform: translate3d(60px, 0px, -45px);
 }
@@ -110,8 +113,9 @@
     transform: translate3d(0px, 60px, -45px);
 }
 
+/*right side*/
 #r1 {
-    transform: rotateY(90deg) translate3d(-30px, 0px, 75px);
+    transform: rotateY(90deg) translate3d(30px, 0px, 75px);
 }
 
 #r2 {
@@ -119,11 +123,11 @@
 }
 
 #r3 {
-    transform: rotateY(90deg) translate3d(30px, 0px, 75px);
+    transform: rotateY(90deg) translate3d(-30px, 0px, 75px);
 }
 
 #r4 {
-    transform: rotateY(90deg) translate3d(-30px, 30px, 75px);
+    transform: rotateY(90deg) translate3d(30px, 30px, 75px);
 }
 
 #r5 {
@@ -131,11 +135,11 @@
 }
 
 #r6 {
-    transform: rotateY(90deg) translate3d(30px, 30px, 75px);
+    transform: rotateY(90deg) translate3d(-30px, 30px, 75px);
 }
 
 #r7 {
-    transform: rotateY(90deg) translate3d(-30px, 60px, 75px);
+    transform: rotateY(90deg) translate3d(30px, 60px, 75px);
 }
 
 #r8 {
@@ -143,11 +147,12 @@
 }
 
 #r9 {
-    transform: rotateY(90deg) translate3d(30px, 60px, 75px);
+    transform: rotateY(90deg) translate3d(-30px, 60px, 75px);
 }
 
+/*left side*/
 #l1 {
-    transform: rotateY(90deg) translate3d(30px, 0px, -15px);
+    transform: rotateY(90deg) translate3d(-30px, 0px, -15px);
 }
 
 #l2 {
@@ -155,11 +160,11 @@
 }
 
 #l3 {
-    transform: rotateY(90deg) translate3d(-30px, 0px, -15px);
+    transform: rotateY(90deg) translate3d(30px, 0px, -15px);
 }
 
 #l4 {
-    transform: rotateY(90deg) translate3d(30px, 30px, -15px);
+    transform: rotateY(90deg) translate3d(-30px, 30px, -15px);
 }
 
 #l5 {
@@ -167,11 +172,11 @@
 }
 
 #l6 {
-    transform: rotateY(90deg) translate3d(-30px, 30px, -15px);
+    transform: rotateY(90deg) translate3d(30px, 30px, -15px);
 }
 
 #l7 {
-    transform: rotateY(90deg) translate3d(30px, 60px, -15px);
+    transform: rotateY(90deg) translate3d(-30px, 60px, -15px);
 }
 
 #l8 {
@@ -179,9 +184,10 @@
 }
 
 #l9 {
-    transform: rotateY(90deg) translate3d(-30px, 60px, -15px);
+    transform: rotateY(90deg) translate3d(30px, 60px, -15px);
 }
 
+/*upper side*/
 #u1 {
     transform: rotateX(90deg) translate3d(0px, -30px, 15px);
 }
@@ -218,6 +224,7 @@
     transform: rotateX(90deg) translate3d(60px, 30px, 15px);
 }
 
+/*bottom side (down)*/
 #d1 {
     transform: rotateX(90deg) translate3d(0px, 30px, -75px);
 }
