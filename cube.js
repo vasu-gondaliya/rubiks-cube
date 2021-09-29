@@ -6,6 +6,7 @@ let mainColor = [
   "rgb(0, 128, 0)",
   "rgb(0, 0, 255)",
 ];
+//test
 let direction = ["right", "left", "up", "down", "front", "back"];
 let sideArray = [
   ["u3", "u6", "u9", "f3", "f6", "f9", "d3", "d6", "d9", "b7", "b4", "b1"],
