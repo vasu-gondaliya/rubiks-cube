@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: radial-gradient(rgb(80, 80, 80), black);
+    background-image: url("background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
