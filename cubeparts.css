@@ -14,24 +14,48 @@
     border-radius: 0.01px;
 }
 
+.front {
+    transform-style: preserve-3d;
+}
+
 .front>div {
     background-color: rgb(0, 128, 0);
+}
+
+.back {
+    transform-style: preserve-3d;
 }
 
 .back>div {
     background-color: rgb(0, 0, 255);
 }
 
+.up {
+    transform-style: preserve-3d;
+}
+
 .up>div {
     background-color: rgb(255, 255, 255);
+}
+
+.down {
+    transform-style: preserve-3d;
 }
 
 .down>div {
     background-color: rgb(255, 255, 0);
 }
 
+.right {
+    transform-style: preserve-3d;
+}
+
 .right>div {
     background-color: rgb(255, 0, 0);
+}
+
+.left {
+    transform-style: preserve-3d;
 }
 
 .left>div {
