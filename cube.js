@@ -53,15 +53,27 @@ function turn(index, face) {
       sideColorArray[(i + 3) % 12];
   }
 }
+let translationMatrix = [
+[0,'r','b','l','f','r','u','l','d','f','u','b','d','r','d','l','u','f','d','b','u','r','f','l','b'],        //matrix is used for translating every move
+[0,'l','f','r','b','l','d','r','u','b','d','f','u','l','u','r','d','b','u','f','d','l','b','r','f'],
+[0,'u','u','u','u','f','f','f','f','l','l','l','l','b','b','b','b','r','r','r','r','d','d','d','d'],
+[0,'d','d','d','d','b','b','b','b','r','r','r','r','f','f','f','f','l','l','l','l','u','u','u','u'],
+[0,'f','r','b','l','d','r','u','l','d','f','u','b','u','r','d','l','u','f','d','b','b','r','f','l'],
+[0,'b','l','f','r','u','l','d','r','u','b','d','f','d','l','u','r','d','b','u','f','f','l','b','r']
+]
 function faceTurn(key) {
-  turn(direction_index.get(key), key);
+  let final_move = translationMatrix[direction_index.get(key)][currentState]      //finds the corresponding move in translationMatrix
+  turn(direction_index.get(final_move), final_move)
+  //turn(direction_index.get(key), key);
 }
 function faceTurnPrime(key) {
   let m = key.toLowerCase();
+  let final_move = translationMatrix[direction_index.get(m)][currentState]
   for (let i = 0; i < 3; i++) {
-    turn(direction_index.get(m), m);
+    turn(direction_index.get(final_move), final_move);
   }
 }
+
 function generate() {
   resetColor();
   let sequence = "";
