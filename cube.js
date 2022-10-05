@@ -1,10 +1,10 @@
 let mainColor = [
-  "rgb(255, 0, 0)",
-  "rgb(255, 140, 0)",
+  "#70e000",
+  "#4361ee",
   "rgb(255, 255, 255)",
-  "rgb(255, 255, 0)",
-  "rgb(0, 128, 0)",
-  "rgb(0, 0, 255)",
+  "#ffee32",
+  "#e5383b",
+  "#f8961e",
 ];
 let direction = ["right", "left", "up", "down", "front", "back"];
 let sideArray = [

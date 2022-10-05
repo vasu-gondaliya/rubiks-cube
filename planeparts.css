@@ -10,16 +10,16 @@
 .part {
     width: 26px;
     height: 26px;
-    border: 2px solid black;
+    border: 2px solid white;
     position: absolute;
 }
 
 .front>div {
-    background-color: rgb(0, 128, 0);
+    background-color: #70e000;
 }
 
 .back>div {
-    background-color: rgb(0, 0, 255);
+    background-color: #4361ee;
 }
 
 .up>div {
@@ -27,15 +27,15 @@
 }
 
 .down>div {
-    background-color: rgb(255, 255, 0);
+    background-color: #ffee32;
 }
 
 .right>div {
-    background-color: rgb(255, 0, 0);
+    background-color: #e5383b;
 }
 
 .left>div {
-    background-color: rgb(255, 140, 0);
+    background-color: #f8961e;
 }
 
 #xf1 {

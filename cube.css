@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Baloo 2', 'sans-serif', 'Helvetica', 'cursive';
     text-align: center;
+    font-size: 1.0rem;
 }
 
 body {
-    background-image: radial-gradient(rgb(80, 80, 80), black);
+    background-image: radial-gradient(#48cae4, #0077b6, #023e8a);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
