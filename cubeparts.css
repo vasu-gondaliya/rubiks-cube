@@ -8,6 +8,7 @@
 
 .cube>div {
     transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
 }
 
 .part {
