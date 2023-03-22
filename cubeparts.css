@@ -6,6 +6,10 @@
     height: 90px;
 }
 
+.cube>div {
+    transform-style: preserve-3d;
+}
+
 .part {
     width: 26px;
     height: 26px;
