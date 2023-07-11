@@ -31,16 +31,9 @@ td {
     padding: 4px;
 }
 
-.instructions {
-    position: absolute;
-    right: 10px;
-    top: 100px;
-}
-
-.face-moves {
-    position: absolute;
-    left: 10px;
-    top: 100px;
+.table-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
@@ -54,6 +47,8 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3.5fr 5fr;
+  padding-top: 2.5rem;
+  position: relative;
 }
 
 .sub-buttons button {
@@ -99,11 +94,10 @@ button {
   color: rgb(160, 160, 160);
 }
 .hide {
-    display: none;
+  display: none;
 }
-
 .copyright {
-    font-size: 12px;
+  font-size: 12px;
 }
 .left {
   grid-row: 2/3;
@@ -132,7 +126,7 @@ button {
 @media screen and (min-width: 650px) {
   footer {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0;
   }
   footer div {
     width: 100vw;
@@ -143,7 +137,7 @@ button {
   #seq {
     width: 100vw;
     position: absolute;
-    top: 15rem;
+    top: 18rem;
   }
 }
 @media screen and (max-width: 650px) {
@@ -162,16 +156,19 @@ button {
     visibility: visible;
     grid-row: 3/4;
   }
+  .table-container{
+    display: none;
+  }
   #sequence {
     grid-row: 2/3;
     align-items: center;
     position: relative;
   }
   #seq {
-    font-size: 0.7rem;
+    font-size: 1rem;
     font-weight: lighter;
     position: absolute;
-    bottom: 0.6rem;
+    bottom: 5rem;
     width: 100%;
   }
 }
