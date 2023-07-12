@@ -164,6 +164,7 @@ button {
   }
   #sequence {
     grid-row: 2/3;
+    height: 60px;
     align-items: center;
     position: relative;
   }
