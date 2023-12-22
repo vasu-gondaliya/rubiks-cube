@@ -1,5 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+/*
+// This code takes input values and generates CSS animations with that information, writing to a file titled cube.txt
+*/
+
 int main()
 {
     ios_base ::sync_with_stdio(false), cin.tie(NULL); // unties the c++ and c stream operators (stdio), unties cin and cout operators
@@ -45,7 +50,7 @@ int main()
         cin >> x >> y >> z;
         file << "#d" << i << "{\ntransform : rotateX(90deg) translate3d(" << x << "px," << y << "px," << z << "px);}\n";
     }*/
-    
+
     int r = 23;
     for (int i = r; i <= r + 1; i++) // iterates twice
     {
