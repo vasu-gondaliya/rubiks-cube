@@ -1,3 +1,40 @@
+let timeElapsed = 0; 
+let timerInterval;
+
+function startTimer() {
+  if (timerInterval) return;
+
+  timerInterval = setInterval(() => {
+    timeElapsed++;
+    displayTime();
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null; 
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timeElapsed = 0;
+  displayTime();
+}
+
+function displayTime() {
+  const timeElement = document.getElementById("time");
+  const hours = Math.floor(timeElapsed / 3600);
+  const minutes = Math.floor((timeElapsed % 3600) / 60);
+  const seconds = timeElapsed % 60;
+
+  const formattedTime = 
+    (hours < 10 ? '0' : '') + hours + ':' + 
+    (minutes < 10 ? '0' : '') + minutes + ':' + 
+    (seconds < 10 ? '0' : '') + seconds;
+
+  timeElement.innerHTML = formattedTime;
+}
 let mainColor = [
   "rgb(255, 0, 0)",
   "rgb(255, 140, 0)",
