@@ -15,6 +15,23 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+#game-timer {
+  font-size: 3em;
+  color: green;
+  margin-top: 50px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
 table,
 th,
