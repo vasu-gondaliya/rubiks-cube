@@ -1,212 +1,231 @@
+/* Defines animation properties for the cube */
 .cube {
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    animation-duration: 0.2s;
+    animation-timing-function: linear; /* Animation progresses at a constant speed */
+    animation-fill-mode: forwards;    /* Keeps the final state after animation ends */
+    animation-duration: 0.2s;         /* Animation duration is 0.2 seconds */
 }
 
+/* Root-level CSS variable for base transformation */
+/* The cube is rotated slightly on X and Y axes and scaled up by 1.8 */
 :root {
     --dt: rotateX(-17deg) rotateY(-30deg) scale3d(1.8, 1.8, 1.8);
 }
 
+/* Animation class 's11' */
 .s11 {
-    animation-name: s11;
+    animation-name: s11; /* Assigns the animation called 's11' */
 }
 
+/* Keyframes for animation 's11' */
 @keyframes s11 {
     from {
-        transform: var(--dt) rotateX(0deg);
+        transform: var(--dt) rotateX(0deg); /* Start at base transform with no extra X rotation */
     }
-
     to {
-        transform: var(--dt) rotateX(0deg) rotateY(-90deg);
+        transform: var(--dt) rotateX(0deg) rotateY(-90deg); /* Rotate cube -90 degrees around Y axis */
     }
 }
 
+/* Animation class 's12' */
 .s12 {
     animation-name: s12;
 }
 
+/* Keyframes for animation 's12' */
 @keyframes s12 {
     from {
         transform: var(--dt) rotateX(0deg);
     }
-
     to {
-        transform: var(--dt) rotateX(0deg) rotateX(90deg);
+        transform: var(--dt) rotateX(0deg) rotateX(90deg); /* Rotate cube 90 degrees around X axis */
     }
 }
 
+/* Animation class 's13' */
 .s13 {
     animation-name: s13;
 }
 
+/* Keyframes for animation 's13' */
 @keyframes s13 {
     from {
         transform: var(--dt) rotateX(0deg);
     }
-
     to {
-        transform: var(--dt) rotateX(0deg) rotateY(90deg);
+        transform: var(--dt) rotateX(0deg) rotateY(90deg); /* Rotate cube 90 degrees around Y axis */
     }
 }
 
+/* Animation class 's14' */
 .s14 {
     animation-name: s14;
 }
 
+/* Keyframes for animation 's14' */
 @keyframes s14 {
     from {
         transform: var(--dt) rotateX(0deg);
     }
-
     to {
-        transform: var(--dt) rotateX(0deg) rotateX(-90deg);
+        transform: var(--dt) rotateX(0deg) rotateX(-90deg); /* Rotate cube -90 degrees around X axis */
     }
 }
 
+/* Animation class 's21', starts with cube rotated -90 degrees on Y axis */
 .s21 {
     animation-name: s21;
 }
 
+/* Keyframes for animation 's21' */
 @keyframes s21 {
     from {
         transform: var(--dt) rotateY(-90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-90deg) rotateY(-90deg);
+        transform: var(--dt) rotateY(-90deg) rotateY(-90deg); /* Further rotate cube -90 degrees on Y axis */
     }
 }
 
+/* Animation class 's22' */
 .s22 {
     animation-name: s22;
 }
 
+/* Keyframes for animation 's22' */
 @keyframes s22 {
     from {
         transform: var(--dt) rotateY(-90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-90deg) rotateZ(-90deg);
+        transform: var(--dt) rotateY(-90deg) rotateZ(-90deg); /* Rotate cube -90 degrees around Z axis */
     }
 }
 
+/* Animation class 's23' */
 .s23 {
     animation-name: s23;
 }
 
+/* Keyframes for animation 's23' */
 @keyframes s23 {
     from {
         transform: var(--dt) rotateY(-90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-90deg) rotateY(90deg);
+        transform: var(--dt) rotateY(-90deg) rotateY(90deg); /* Rotate cube 90 degrees around Y axis */
     }
 }
 
+/* Animation class 's24' */
 .s24 {
     animation-name: s24;
 }
 
+/* Keyframes for animation 's24' */
 @keyframes s24 {
     from {
         transform: var(--dt) rotateY(-90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-90deg) rotateZ(90deg);
+        transform: var(--dt) rotateY(-90deg) rotateZ(90deg); /* Rotate cube 90 degrees around Z axis */
     }
 }
 
+/* Animation class 's31', starts with cube rotated -180 degrees on Y axis */
 .s31 {
     animation-name: s31;
 }
 
+/* Keyframes for animation 's31' */
 @keyframes s31 {
     from {
         transform: var(--dt) rotateY(-180deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-180deg) rotateY(-90deg);
+        transform: var(--dt) rotateY(-180deg) rotateY(-90deg); /* Rotate cube further -90 degrees on Y axis */
     }
 }
 
+/* Animation class 's32' */
 .s32 {
     animation-name: s32;
 }
 
+/* Keyframes for animation 's32' */
 @keyframes s32 {
     from {
         transform: var(--dt) rotateY(-180deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-180deg) rotateX(-90deg);
+        transform: var(--dt) rotateY(-180deg) rotateX(-90deg); /* Rotate cube -90 degrees around X axis */
     }
 }
 
+/* Animation class 's33' */
 .s33 {
     animation-name: s33;
 }
 
+/* Keyframes for animation 's33' */
 @keyframes s33 {
     from {
         transform: var(--dt) rotateY(-180deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-180deg) rotateY(90deg);
+        transform: var(--dt) rotateY(-180deg) rotateY(90deg); /* Rotate cube 90 degrees around Y axis */
     }
 }
 
+/* Animation class 's34' */
 .s34 {
     animation-name: s34;
 }
 
+/* Keyframes for animation 's34' */
 @keyframes s34 {
     from {
         transform: var(--dt) rotateY(-180deg);
     }
-
     to {
-        transform: var(--dt) rotateY(-180deg) rotateX(90deg);
+        transform: var(--dt) rotateY(-180deg) rotateX(90deg); /* Rotate cube 90 degrees around X axis */
     }
 }
 
+/* Animation class 's41', starts with cube rotated 90 degrees on Y axis */
 .s41 {
     animation-name: s41;
 }
 
+/* Keyframes for animation 's41' */
 @keyframes s41 {
     from {
         transform: var(--dt) rotateY(90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(90deg) rotateY(-90deg);
+        transform: var(--dt) rotateY(90deg) rotateY(-90deg); /* Rotate cube -90 degrees around Y axis */
     }
 }
 
+/* Animation class 's42' */
 .s42 {
     animation-name: s42;
 }
 
+/* Keyframes for animation 's42' */
 @keyframes s42 {
     from {
         transform: var(--dt) rotateY(90deg);
     }
-
     to {
-        transform: var(--dt) rotateY(90deg) rotateZ(90deg);
+        transform: var(--dt) rotateY(90deg) rotateZ(90deg); /* Rotate cube 90 degrees around Z axis */
     }
 }
 
+/* Animation class 's43' */
 .s43 {
-    animation-name: s43;
+    animation-name: s43; 
 }
+
 
 @keyframes s43 {
     from {
