@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cube by Vasu Gondaliya</title>
+    <!-- Arquivos CSS para estilização do cubo e suas animações -->
     <link rel="stylesheet" href="cube.css">
     <link rel="stylesheet" href="cubeparts.css">
     <link rel="stylesheet" href="planeparts.css">
@@ -13,8 +14,11 @@
 </head>
 
 <body>
+    <!-- Container principal do cubo 3D com classe 's23' (provavelmente para cubo 3x3) -->
     <div class="cube s23">
+        <!-- Face frontal do cubo - cada face tem 9 partes (3x3) -->
         <div class="front">
+            <!-- Cada div representa um quadradinho da face frontal (f1 a f9) -->
             <div class="part" id="f1"></div>
             <div class="part" id="f2"></div>
             <div class="part" id="f3"></div>
@@ -25,6 +29,8 @@
             <div class="part" id="f8"></div>
             <div class="part" id="f9"></div>
         </div>
+
+        <!-- Face traseira do cubo (b1 a b9) -->
         <div class="back">
             <div class="part" id="b1"></div>
             <div class="part" id="b2"></div>
@@ -36,6 +42,8 @@
             <div class="part" id="b8"></div>
             <div class="part" id="b9"></div>
         </div>
+
+        <!-- Face superior do cubo (u1 a u9) -->
         <div class="up">
             <div class="part" id="u1"></div>
             <div class="part" id="u2"></div>
@@ -47,6 +55,8 @@
             <div class="part" id="u8"></div>
             <div class="part" id="u9"></div>
         </div>
+
+        <!-- Face inferior do cubo (d1 a d9) -->
         <div class="down">
             <div class="part" id="d1"></div>
             <div class="part" id="d2"></div>
@@ -58,6 +68,8 @@
             <div class="part" id="d8"></div>
             <div class="part" id="d9"></div>
         </div>
+
+        <!-- Face direita do cubo (r1 a r9) -->
         <div class="right">
             <div class="part" id="r1"></div>
             <div class="part" id="r2"></div>
@@ -69,6 +81,8 @@
             <div class="part" id="r8"></div>
             <div class="part" id="r9"></div>
         </div>
+
+        <!-- Face esquerda do cubo (l1 a l9) -->
         <div class="left">
             <div class="part" id="l1"></div>
             <div class="part" id="l2"></div>
@@ -81,6 +95,8 @@
             <div class="part" id="l9"></div>
         </div>
     </div>
+
+    <!-- Tabela de instruções para movimentos das faces -->
     <table class="face-moves">
         <caption>
             <h3>Face Moves</h3>
@@ -90,6 +106,7 @@
             <th>Use</th>
         </thead>
         <tbody>
+            <!-- Cada linha mostra uma tecla e sua função correspondente -->
             <tr>
                 <td>l</td>
                 <td>Left Clockwise</td>
@@ -120,6 +137,8 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Tabela de instruções gerais para controle do cubo -->
     <table class="instructions">
         <caption>
             <h3>Instructions</h3>
@@ -129,6 +148,7 @@
             <th>Use</th>
         </thead>
         <tbody>
+            <!-- Setas direcionais para rotacionar a visualização do cubo -->
             <tr>
                 <td>&larr;</td>
                 <td>Cube Left</td>
@@ -145,30 +165,34 @@
                 <td>&darr;</td>
                 <td>Cube Down</td>
             </tr>
-
+            <!-- Funções especiais -->
             <tr>
                 <td>g</td>
-                <td>Generate Scramble</td>
+                <td>Generate Scramble</td> <!-- Gera embaralhamento aleatório -->
             </tr>
             <tr>
                 <td>z</td>
-                <td>Reset</td>
+                <td>Reset</td> <!-- Reseta o cubo ao estado inicial -->
             </tr>
             <tr>
                 <td>v</td>
-                <td>Change View </td>
+                <td>Change View</td> <!-- Alterna entre visualizações -->
             </tr>
             <tr>
                 <td>a</td>
-                <td>Start Animation</td>
+                <td>Start Animation</td> <!-- Inicia animação automática -->
             </tr>
             <tr>
                 <td>Shift + a</td>
-                <td>Stop Animation</td>
+                <td>Stop Animation</td> <!-- Para animação automática -->
             </tr>
         </tbody>
     </table>
+
+    <!-- Cubo em vista planificada (inicialmente oculto com classe 'hide') -->
+    <!-- Esta é uma visualização alternativa do cubo em formato 2D -->
     <div class="plane-cube hide">
+        <!-- Mesma estrutura do cubo 3D, mas com IDs prefixados com 'x' -->
         <div class="front">
             <div class="part" id="xf1"></div>
             <div class="part" id="xf2"></div>
@@ -236,10 +260,15 @@
             <div class="part" id="xl9"></div>
         </div>
     </div>
+
+    <!-- Área para exibir sequência de movimentos -->
     <div id="sequence">
-      <div id="seq">&nbsp;</div>
+        <div id="seq">&nbsp;</div> <!-- Mostra os movimentos executados -->
     </div>
+
+    <!-- Interface de botões para controle via clique -->
     <div class="buttons">
+        <!-- Botões para movimentos horários das faces -->
         <div class="sub-buttons face-btn">
             <div class="btn-title">Clockwise</div>
             <button type="button" class="left">L</button>
@@ -249,45 +278,36 @@
             <button type="button" class="front">F</button>
             <button type="button" class="back">B</button>
         </div>
+
+        <!-- Botões principais de controle -->
         <div class="sub-buttons main-btn">
+            <!-- Botões direcionais para rotacionar visualização -->
             <div class="view-btn">
-              <button
-                type="button"
-                class="left cube-turn"
-                style="grid-row: 2/3; grid-column: 1/2"
-              >
-                &larr;
-              </button>
-              <button
-                type="button"
-                class="up cube-turn"
-                style="grid-row: 1/2; grid-column: 2/3"
-              >
-                &uarr;
-              </button>
-              <button
-                type="button"
-                class="right cube-turn"
-                style="grid-row: 2/3; grid-column: 3/4"
-              >
-                &rarr;
-              </button>
-              <button
-                type="button"
-                class="down cube-turn"
-                style="grid-row: 2/3; grid-column: 2/3"
-              >
-                &darr;
-              </button>
+                <button type="button" class="left cube-turn" style="grid-row: 2/3; grid-column: 1/2">
+                    &larr;
+                </button>
+                <button type="button" class="up cube-turn" style="grid-row: 1/2; grid-column: 2/3">
+                    &uarr;
+                </button>
+                <button type="button" class="right cube-turn" style="grid-row: 2/3; grid-column: 3/4">
+                    &rarr;
+                </button>
+                <button type="button" class="down cube-turn" style="grid-row: 2/3; grid-column: 2/3">
+                    &darr;
+                </button>
             </div>
+
+            <!-- Botões de funcionalidades especiais -->
             <div class="misc-btn">
-              <button type="button" class="generate">Scramble</button>
-              <button type="button" class="reset">Reset</button>
-              <button type="button" class="view">View</button>
-              <button type="button" class="start-animation">Start Animation</button>
-              <button type="button" class="stop-animation">Stop Animation</button>
+                <button type="button" class="generate">Scramble</button>
+                <button type="button" class="reset">Reset</button>
+                <button type="button" class="view">View</button>
+                <button type="button" class="start-animation">Start Animation</button>
+                <button type="button" class="stop-animation">Stop Animation</button>
             </div>
         </div>
+
+        <!-- Botões para movimentos anti-horários das faces -->
         <div class="sub-buttons face-prime-btn">
             <div class="btn-title">Anti-clockwise</div>
             <button type="button" class="left">L'</button>
@@ -298,12 +318,16 @@
             <button type="button" class="back">B'</button>
         </div>
     </div>
+
+    <!-- Rodapé com informações de copyright -->
     <footer>
         <div class="copyright">
             <p>© 2020 Developed by Vasu Gondaliya</p>
         </div>
     </footer>
 </body>
+
+<!-- Script JavaScript que controla toda a lógica do cubo -->
 <script src="cube.js"></script>
 
 </html>
