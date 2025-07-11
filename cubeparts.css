@@ -4,6 +4,7 @@
     margin: 200px auto 0;
     width: 90px;
     height: 90px;
+
 }
 
 .cube>div {
@@ -14,17 +15,17 @@
 .part {
     width: 26px;
     height: 26px;
-    border: 2px solid black;
+    border: 2.5px solid black;
     position: absolute;
-    border-radius: 0.01px;
+    border-radius: 5px;
 }
 
 .front>div {
-    background-color: rgb(0, 128, 0);
+    background-color: rgb(48, 214, 48);
 }
 
 .back>div {
-    background-color: rgb(0, 0, 255);
+    background-color:  rgb(7, 7, 203);
 }
 
 .up>div {
@@ -40,7 +41,7 @@
 }
 
 .left>div {
-    background-color: rgb(255, 140, 0);
+    background-color: rgb(255, 111, 0);
 }
 
 #f1 {

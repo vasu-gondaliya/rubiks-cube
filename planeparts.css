@@ -10,8 +10,9 @@
 .part {
     width: 26px;
     height: 26px;
-    border: 2px solid black;
+    border: 2.5px solid black;
     position: absolute;
+    transition: backgound-color 0.2s ease , transform 0.2s ease;
 }
 
 .front>div {

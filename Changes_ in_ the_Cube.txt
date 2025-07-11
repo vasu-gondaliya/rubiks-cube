@@ -1,0 +1,51 @@
+Adding Undo and Redo buttons
+
+ - We create two stacks for both undo and redo namely undoStack and redoStack( in cube.js) similar to the direction and sideArray. The undo stack stores the history of every move the user makes. everytime a new move is made it pushes it onto the stack. In redo stack , when the user undoes a move, we pop it from the undo stack and add it to the redo stack. However if the user makes a new different move while we have undid a move then the redo stack is cleared. 
+
+- for each move we store it in a move object like this
+		{move : 'r' isPrime: true} or {move: 'r' is Prime: false}
+(prime move is the opposite of a regular move) 
+
+- now we push these moves on the undostack each time a new move is performed and the redo stack is cleared
+- if we want to undo move, we pop the last move on the undostack and the algorithm checks if the move is prime, it just performs a regular move i.e. opposite of prime move AND  if a regular move is performed then to undo it we perform a prime move ( i.e. regular move 3 times) 
+
+- while we are undoing the move that is on the undostack , we also push it on the redo stack so that we can use it to redo if we want
+
+- similar to the undo stack function , we similarly check if the move is prime or not and perform a move based on it
+
+- while redoing a move we also push it on the undostack( as it is now a new move that must be pushed on the undo stack if we want to undo it again) 
+
+- lastly we added undo and redo buttons in html code and added a querySelector for when the button is clicked or the relevant key is pressed( i.e. CTLRL+ y for redo and CTRL + z for undo) 
+
+
+Drag to rotate cube's view
+we let two starting points for the horizontal and vertical axis along with dragging state= false initially
+
+Create three new functions in cube.js namely handleDragStart(), handleDragMove(), handleDragEnd().
+
+handleDragStart() initialises the starting point for dragging(lets assume (0,0) ) and also changes draggingstate = true. It also prevents default browser actions like text selection 
+in handleDragMove() currentX , currentY store current x,y coordinates where the drag ends (i.e. after dragging) . We subtract initial x, y from the cuurent postions giving us the displacement( per se). We set the threshold for drag resulting in a turn to be 50 pixels . Then we check if the displacement is greater than the threshold and change cube directions using if- else statements and cubeTurn() function(originally there) 
+handleDragEnd() resets the dragging state to false.
+
+Then we add EventListeners for mouseDown, up, move, leave.
+
+
+
+UI/UX Improvement
+
+UI-UX changes by Pratyaksh Patel
+
+Goal: to make the animations of cube smoother and make the site more aesthetic and user friendly. 
+
+index.html: made the instructions and facemoves table aesthetic with giving it blur background and rounded edges with improved border and padding. Also, buttons for changing the background.  
+
+cube.css: added background to the site and made the cube alignment proper with enlarging the scale of the grid to make the cube look more bigger. Attributes for the new background changing buttons.
+
+cube.js: added code for changing the backgrounds as per user's mood.
+
+cubeanimations.css: Made the cube animations smoother and better transitions when the view is changed
+ 
+cubeparts.css, planeparts.css: made the colors of the cube more attractive and give them smooth transition effect. Made the cube more realistic, instead of just a cube. Fixed the issue of gaps between the edges of parts.
+
+Sound Effects
+To add sound, changes are made in the cube.js file. A sound object is made to hold audio instances for each sound type. A reusable function ‘playSound’ is made that plays any registered sound type with optional volume control. This function prevents overlapping sounds by resetting playback(currentTime = 0). This function is used in faceTurn(), faceTurnPrime(), cubeTurn(), generate(), resetColor(), and changeView() to play the audio when these functions are triggered. In the function generate(), resetColor(true) skips the reset sound (true argument disables it). This prevents the two sounds, reset and scramble, from playing together

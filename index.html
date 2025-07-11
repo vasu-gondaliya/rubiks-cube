@@ -10,9 +10,22 @@
     <link rel="stylesheet" href="planeparts.css">
     <link rel="stylesheet" href="cubeanimations.css">
     <link rel="icon" href="favicon.ico">
+    <style>
+    #panel {
+        background: rgba(0, 0, 0, 0.11);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 20px;
+        color: #fff;
+        margin: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+  </style>
 </head>
 
 <body>
+    
     <div class="cube s23">
         <div class="front">
             <div class="part" id="f1"></div>
@@ -81,93 +94,7 @@
             <div class="part" id="l9"></div>
         </div>
     </div>
-    <table class="face-moves">
-        <caption>
-            <h3>Face Moves</h3>
-        </caption>
-        <thead>
-            <th>Key</th>
-            <th>Use</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>l</td>
-                <td>Left Clockwise</td>
-            </tr>
-            <tr>
-                <td>u</td>
-                <td>Up Clockwise</td>
-            </tr>
-            <tr>
-                <td>r</td>
-                <td>Right Clockwise</td>
-            </tr>
-            <tr>
-                <td>d</td>
-                <td>Down Clockwise</td>
-            </tr>
-            <tr>
-                <td>f</td>
-                <td>Front Clockwise</td>
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Back Clockwise</td>
-            </tr>
-            <tr>
-                <td>Shift + Key</td>
-                <td>Face AntiClockwise</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="instructions">
-        <caption>
-            <h3>Instructions</h3>
-        </caption>
-        <thead>
-            <th>Key</th>
-            <th>Use</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>&larr;</td>
-                <td>Cube Left</td>
-            </tr>
-            <tr>
-                <td>&uarr;</td>
-                <td>Cube Up</td>
-            </tr>
-            <tr>
-                <td>&rarr;</td>
-                <td>Cube Right</td>
-            </tr>
-            <tr>
-                <td>&darr;</td>
-                <td>Cube Down</td>
-            </tr>
 
-            <tr>
-                <td>g</td>
-                <td>Generate Scramble</td>
-            </tr>
-            <tr>
-                <td>z</td>
-                <td>Reset</td>
-            </tr>
-            <tr>
-                <td>v</td>
-                <td>Change View </td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>Start Animation</td>
-            </tr>
-            <tr>
-                <td>Shift + a</td>
-                <td>Stop Animation</td>
-            </tr>
-        </tbody>
-    </table>
     <div class="plane-cube hide">
         <div class="front">
             <div class="part" id="xf1"></div>
@@ -239,6 +166,112 @@
     <div id="sequence">
       <div id="seq">&nbsp;</div>
     </div>
+    <div class="background-buttons">
+        <button id="prev-bg">⟵ Previous Background</button>
+        <button id="next-bg">Next Background ⟶</button>
+    </div>
+
+    <table class="face-moves" id="panel">
+        <caption>
+            <h3>FACE MOVES</h3>
+        </caption>
+        <thead>
+            <th>Key</th>
+            <th>Use</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>L</td>
+                <td>Left Clockwise</td>
+            </tr>
+            <tr>
+                <td>U</td>
+                <td>Up Clockwise</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>Right Clockwise</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>Down Clockwise</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>Front Clockwise</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>Back Clockwise</td>
+            </tr>
+            <tr>
+                <td>Shift + Key</td>
+                <td>Face AntiClockwise</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <table class="instructions" id="panel">
+        <caption>
+            <h3>INSTRUCTIONS</h3>
+        </caption>
+        <thead>
+            <th>Key</th>
+            <th>Use</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&larr;</td>
+                <td>Cube Left</td>
+            </tr>
+            <tr>
+                <td>&uarr;</td>
+                <td>Cube Up</td>
+            </tr>
+            <tr>
+                <td>&rarr;</td>
+                <td>Cube Right</td>
+            </tr>
+            <tr>
+                <td>&darr;</td>
+                <td>Cube Down</td>
+            </tr>
+
+            <tr>
+                <td>G</td>
+                <td>Generate Scramble</td>
+            </tr>
+            <tr>
+                <td>Ctrl + Y</td>
+                <td>Redo</td>
+            </tr>
+            <tr>
+                <td>Ctrl + Z</td>
+                <td>Undo</td>
+            </tr>
+            <tr>
+                <td>Z</td>
+                <td>Reset</td>
+            </tr>
+            <tr>
+                <td>V</td>
+                <td>Change View </td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>Start Animation</td>
+            </tr>
+            <tr>
+                <td>Shift + A</td>
+                <td>Stop Animation</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="timer" style="color: white; font-size: 1.2em; position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.4); padding: 5px 10px; border-radius: 5px;">
+        Time: 0s
+    </div>
+    
     <div class="buttons">
         <div class="sub-buttons face-btn">
             <div class="btn-title">Clockwise</div>
@@ -282,6 +315,8 @@
             </div>
             <div class="misc-btn">
               <button type="button" class="generate">Scramble</button>
+              <button type="button" class="undo-btn">Undo</button>
+              <button type="button" class="redo-btn">Redo</button>
               <button type="button" class="reset">Reset</button>
               <button type="button" class="view">View</button>
               <button type="button" class="start-animation">Start Animation</button>
@@ -303,6 +338,10 @@
             <p>© 2020 Developed by Vasu Gondaliya</p>
         </div>
     </footer>
+    <audio id="turn" src="assets/turn.wav" preload="auto"></audio>
+    <audio id="generate" src="assets/scramble.wav" preload="auto"></audio>
+    <audio id="reset" src="assets/turnPrime.wav" preload="auto"></audio>
+    <audio id="turnPrime" src="assets/turnPrime.wav" preload="auto"></audio>
 </body>
 <script src="cube.js"></script>
 

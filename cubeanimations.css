@@ -5,7 +5,7 @@
 }
 
 :root {
-    --dt: rotateX(-17deg) rotateY(-30deg) scale3d(1.8, 1.8, 1.8);
+    --dt: rotateX(-17deg) rotateY(-30deg) scale3d(2.5, 2.5, 2.5);
 }
 
 .s11 {

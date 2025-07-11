@@ -1,11 +1,21 @@
 let mainColor = [
   "rgb(255, 0, 0)",
-  "rgb(255, 140, 0)",
-  "rgb(255, 255, 255)",
+  "rgb(255, 111, 0)",
+  " rgb(255, 255, 255)",
   "rgb(255, 255, 0)",
-  "rgb(0, 128, 0)",
-  "rgb(0, 0, 255)",
+  "rgb(48, 214, 48)",
+  " rgb(7, 7, 203)",
 ];
+
+////////////////////////////////////
+let undoStack = [];
+let redoStack = [];
+let isDragging = false;
+let startX, startY;
+let scrambleStartTime;
+let timerInterval;
+///////////////////////////////////
+
 let direction = ["right", "left", "up", "down", "front", "back"];
 let sideArray = [
   ["u3", "u6", "u9", "f3", "f6", "f9", "d3", "d6", "d9", "b7", "b4", "b1"],
@@ -26,31 +36,50 @@ function turn(index, face) {
   for (let i = 0; i < 8; i++) {
     let currentElement = document.getElementById(face + faceArray[i]);
     faceColorArray.push(
-      window
-        .getComputedStyle(currentElement)
-        .getPropertyValue("background-color")
+        window
+            .getComputedStyle(currentElement)
+            .getPropertyValue("background-color")
     );
   }
   for (let i = 0; i < 8; i++) {
     document.getElementById(face + faceArray[i]).style.backgroundColor =
-      faceColorArray[(i + 2) % 8];
+        faceColorArray[(i + 2) % 8];
     document.getElementById("x" + face + faceArray[i]).style.backgroundColor =
-      faceColorArray[(i + 2) % 8];
+        faceColorArray[(i + 2) % 8];
   }
   let sideColorArray = [];
   for (let i = 0; i < 12; i++) {
     let currentElement = document.getElementById(sideArray[index][i]);
     sideColorArray.push(
-      window
-        .getComputedStyle(currentElement)
-        .getPropertyValue("background-color")
+        window
+            .getComputedStyle(currentElement)
+            .getPropertyValue("background-color")
     );
   }
   for (let i = 0; i < 12; i++) {
     document.getElementById(sideArray[index][i]).style.backgroundColor =
-      sideColorArray[(i + 3) % 12];
+        sideColorArray[(i + 3) % 12];
     document.getElementById("x" + sideArray[index][i]).style.backgroundColor =
-      sideColorArray[(i + 3) % 12];
+        sideColorArray[(i + 3) % 12];
+  }
+// Check if cube is solved
+  let isSolved = true;
+  for (let i = 0; i < 6; i++) {
+    let pieces = document.querySelectorAll("." + direction[i] + " .part");
+    for (let j = 0; j < 18; j++) {
+      // Normalize both actual and expected color strings (remove all whitespace)
+      const actual = getComputedStyle(pieces[j]).getPropertyValue("background-color").replace(/\s+/g, '');
+      const expected = mainColor[i].replace(/\s+/g, '');
+      if (actual !== expected) {
+        isSolved = false;
+        break;
+      }
+    }
+    if (!isSolved) break;
+  }
+
+  if (isSolved) {
+    stopTimer();
   }
 }
 let translationMatrix = [
@@ -61,21 +90,42 @@ let translationMatrix = [
 [0,'f','r','b','l','d','r','u','l','d','f','u','b','u','r','d','l','u','f','d','b','b','r','f','l'],
 [0,'b','l','f','r','u','l','d','r','u','b','d','f','d','l','u','r','d','b','u','f','f','l','b','r']
 ]
+// Audio Manager
+const sounds = {
+  turn: new Audio('assets/turn.wav'),
+  scramble: new Audio('assets/scramble.wav'),
+  reset: new Audio('assets/turnPrime.wav'),
+  turnPrime: new Audio('assets/turnPrime.wav')
+};
+
+// Play sound helper function
+function playSound(type, volume = 0.5) {
+  if (sounds[type]) {
+    sounds[type].volume = volume;
+    sounds[type].currentTime = 0; // Rewind to start if already playing
+    sounds[type].play().catch(e => console.log("Audio play failed:", e));
+  }
+}
 function faceTurn(key) {
+  playSound('turn');
   let final_move = translationMatrix[direction_index.get(key)][currentState]      //finds the corresponding move in translationMatrix
   turn(direction_index.get(final_move), final_move)
+  recordMove(final_move, false);
   //turn(direction_index.get(key), key);
 }
 function faceTurnPrime(key) {
+  playSound('turn');
   let m = key.toLowerCase();
   let final_move = translationMatrix[direction_index.get(m)][currentState]
   for (let i = 0; i < 3; i++) {
     turn(direction_index.get(final_move), final_move);
+    recordMove(final_move, true);
   }
 }
 
 function generate() {
-  resetColor();
+  playSound('scramble',0.7);
+  resetColor(true);
   let sequence = "";
   let sequenceArray = [];
   for (let i = 0; i < 30; i++) {
@@ -111,6 +161,18 @@ function generate() {
     sequence += " ";
   }
   document.getElementById("seq").textContent = sequence;
+
+  scrambleStartTime = Date.now();
+  document.getElementById("timer").textContent = "Time: 0s | Score: 1000";
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+
+  timerInterval = setInterval(() => {
+    const elapsed = Math.floor((Date.now() - scrambleStartTime) / 1000);
+    const score = calculateScore(elapsed);
+    document.getElementById("timer").textContent = `Time: ${elapsed}s | Score: ${score}`;
+  }, 1000);
 }
 let stateArray =
   //left,up,right,down
@@ -145,6 +207,7 @@ let stateArray =
 let currentState = 1;
 let currentClass = "s23";
 function cubeTurn(keycode) {
+  playSound('turnPrime');
   let k = keycode - 37;
   let cube = document.querySelector(".cube");
   cube.classList.remove(currentClass);
@@ -156,12 +219,18 @@ function changeView() {
   document.querySelector(".cube").classList.toggle("hide");
   document.querySelector(".plane-cube").classList.toggle("hide");
 }
-function resetColor() {
+function resetColor(skipSound=false) {
+  if(!skipSound) playSound('reset',0.2);
+  stopTimer();
+  document.getElementById("timer").textContent = "Time: 0s | Score: 1000";
   for (let i = 0; i < 6; i++) {
     let pieces = document.querySelectorAll("." + direction[i] + " .part");
     for (let j = 0; j < 18; j++) {
       pieces[j].style.backgroundColor = mainColor[i];
     }
+    undoStack = [];
+    redoStack = [];
+    updateUndoRedoButtons();
   }
   document.getElementById("seq").innerHTML = "&nbsp;";
   let cube = document.querySelector(".cube");
@@ -206,8 +275,18 @@ function stopAnimation() {
   continueAnimation = 0;
 }
 
-function checkKeyboardEventKey(eventKey, eventKeyCode) {
-  console.log({ eventKey, eventKeyCode });
+function checkKeyboardEventKey(eventKey, eventKeyCode, isCtrlPressed= false ) {
+  console.log({ eventKey, eventKeyCode,isCtrlPressed });
+  if (isCtrlPressed) {
+    if (eventKey.toLowerCase() === 'z') {
+      undoMove();
+      return; // Stop further execution
+    }
+    if (eventKey.toLowerCase() === 'y') {
+      redoMove();
+      return; // Stop further execution
+    }
+  }
   switch (eventKey) {
     case "r":
     case "l":
@@ -251,7 +330,7 @@ function checkKeyboardEventKey(eventKey, eventKeyCode) {
 }
 document.onkeydown = function () {
   //Main EventListner for keypress
-  checkKeyboardEventKey(event.key, event.keyCode);
+  checkKeyboardEventKey(event.key, event.keyCode, event.ctrlKey);
 };
 
 document.querySelectorAll(".face-btn button").forEach((element) => {
@@ -277,9 +356,202 @@ document.querySelectorAll(".cube-turn").forEach((element) => {
   };
 });
 
+function recordMove(move, isPrime) {
+  // A new move is made, so we push it to the undo stack.
+  undoStack.push({ move: move, isPrime: isPrime });
+  
+  // Any new move invalidates the previous "redo" history.
+  redoStack = [];
+
+  updateUndoRedoButtons();
+}
+
+
+function undoMove() {
+  if (undoStack.length === 0) {
+    console.log("Nothing to undo.");
+    return; // Nothing to undo
+  }
+
+  const lastMove = undoStack.pop();
+
+  // Perform the OPPOSITE move
+  // The opposite of a prime move is a regular move.
+  // The opposite of a regular move is a prime move (3 regular turns).
+  if (lastMove.isPrime) {
+    // It was a prime move, so we undo with a regular turn
+    turn(direction_index.get(lastMove.move), lastMove.move);
+  } else {
+    // It was a regular move, so we undo with a prime turn
+    for (let i = 0; i < 3; i++) {
+      turn(direction_index.get(lastMove.move), lastMove.move);
+    }
+  }
+
+  // Push the original move onto the redo stack so we can redo it
+  redoStack.push(lastMove);
+  updateUndoRedoButtons();
+}
+
+function redoMove() {
+  if (redoStack.length === 0) {
+    console.log("Nothing to redo.");
+    return; // Nothing to redo
+  }
+
+  const nextMove = redoStack.pop();
+
+  // Re-apply the move exactly as it was
+  if (nextMove.isPrime) {
+    // It was a prime move
+    for (let i = 0; i < 3; i++) {
+      turn(direction_index.get(nextMove.move), nextMove.move);
+    }
+  } else {
+    // It was a regular move
+    turn(direction_index.get(nextMove.move), nextMove.move);
+  }
+
+    function updateUndoRedoButtons() {
+    const undoBtn = document.querySelector('.undo-btn');
+    const redoBtn = document.querySelector('.redo-btn');
+
+    undoBtn.disabled = undoStack.length === 0;
+    redoBtn.disabled = redoStack.length === 0;
+}
+  // Push the move back onto the undo stack
+  undoStack.push(nextMove);
+  updateUndoRedoButtons();
+}
+
+function updateUndoRedoButtons() {
+    const undoBtn = document.querySelector('.undo-btn');
+    const redoBtn = document.querySelector('.redo-btn');
+
+    undoBtn.disabled = undoStack.length === 0;
+    redoBtn.disabled = redoStack.length === 0;
+}
+
+
+function handleDragStart(e) {
+  e.preventDefault();
+  isDragging = true;
+  startX = e.clientX || e.touches[0].clientX;
+  startY = e.clientY || e.touches[0].clientY;
+
+}
+
+function handleDragMove(e) {
+  if (!isDragging) return;
+  e.preventDefault();
+
+  const currentX = e.clientX || e.touches[0].clientX;
+  const currentY = e.clientY || e.touches[0].clientY;
+
+  const deltaX = currentX - startX;
+  const deltaY = currentY - startY;
+
+  //Threshold to prevent accidental tiny drags from rotating the cube
+  const threshold = 50; // 50 pixels
+
+  if (Math.abs(deltaX) > threshold || Math.abs(deltaY) > threshold) {
+    // Determine the primary drag direction
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Horizontal drag
+      if (deltaX > 0) {
+        cubeTurn(39);
+      } else {
+        cubeTurn(37);
+      }
+    } else {
+      // Vertical drag
+      if (deltaY > 0) {
+        cubeTurn(40);
+      } else {
+        cubeTurn(38);
+      }
+    }
+    
+    //Reset dragging state immediately after one turn
+    // This prevents one long drag from spinning the cube uncontrollably.
+    isDragging = false;
+  }
+}
+
+function handleDragEnd(e) {
+  if (isDragging) {
+    isDragging = false;
+  }
+}
+
+// Array of background image file names (stored in 'images' folder)
+const bgImages = [
+  "background1.jpg",
+  "background2.jpg",
+  "background3.jpg",
+  "background4.jpg",
+  "background5.jpg",
+  "background6.jpg",
+  "background7.jpg",
+  "background8.jpg"
+];
+
+let currentBgIndex = 0;
+
+function setBackground(index) {
+  const imageUrl = `assets/${bgImages[index]}`;
+  document.body.style.backgroundImage = `url('${imageUrl}')`;
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
+  document.body.style.backgroundRepeat = "no-repeat";
+}
+
+// Button handlers
+document.getElementById("prev-bg").onclick = () => {
+  currentBgIndex = (currentBgIndex - 1 + bgImages.length) % bgImages.length;
+  setBackground(currentBgIndex);
+};
+
+document.getElementById("next-bg").onclick = () => {
+  currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+  setBackground(currentBgIndex);
+};
+
+setBackground(currentBgIndex);
 document.querySelector(".generate").onclick = generate;
 document.querySelector(".reset").onclick = resetColor;
 document.querySelector(".view").onclick = changeView;
 document.querySelector(".start-animation").onclick = () =>
   !continueAnimation && startAnimation();
 document.querySelector(".stop-animation").onclick = stopAnimation;
+
+//for undo and redo ///////////////////
+document.querySelector(".undo-btn").onclick = undoMove;
+document.querySelector(".redo-btn").onclick = redoMove;
+
+// Listen for mouse events
+document.body.addEventListener('mousedown', handleDragStart);
+document.body.addEventListener('mousemove', handleDragMove);
+document.body.addEventListener('mouseup', handleDragEnd);
+document.body.addEventListener('mouseleave', handleDragEnd); // In case mouse leaves window
+
+// Listen for touch events
+document.body.addEventListener('touchstart', handleDragStart, { passive: false });
+document.body.addEventListener('touchmove', handleDragMove, { passive: false });
+document.body.addEventListener('touchend', handleDragEnd);
+
+
+function stopTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+
+    const elapsed = Math.floor((Date.now() - scrambleStartTime) / 1000);
+  }
+}
+
+function calculateScore(timeInSeconds) {
+  const baseScore = 1000;
+  const penalty = timeInSeconds * 4; // Losing 4 points per second
+  return Math.max(baseScore - penalty, 0); // Prevent negative score
+}
