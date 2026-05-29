@@ -50,3 +50,4 @@ Revealing the buttons will overlap with the default layout of the visualizer, bu
 	- Example: The first row of data under the `front` label is `0 0 45`. This corresponds to the line `transform: translate3d(0px, 0px, 45px);` for `#f1` in `cubeparts.css`.
 - `cube.txt`: Previously served the function of `cubeinput.txt`, now is a blank file.
 - `/assets`: Stores images used in `README.md`.
+

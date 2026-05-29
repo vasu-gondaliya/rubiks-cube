@@ -283,3 +283,248 @@ document.querySelector(".view").onclick = changeView;
 document.querySelector(".start-animation").onclick = () =>
   !continueAnimation && startAnimation();
 document.querySelector(".stop-animation").onclick = stopAnimation;
+// ==================== THEME TOGGLE ====================
+
+const themeToggle = document.getElementById("theme-toggle");
+
+if (themeToggle) {
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.innerHTML = "☀️ Light Mode";
+  } else {
+    themeToggle.innerHTML = "🌙 Dark Mode";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+      themeToggle.innerHTML = "☀️ Light Mode";
+    } else {
+      localStorage.setItem("theme", "dark");
+      themeToggle.innerHTML = "🌙 Dark Mode";
+    }
+  });
+}
+// ================= TIMER =================
+
+// ================= TIMER =================
+
+let startTime = 0;
+let elapsedTime = 0;
+let timerInterval = null;
+
+const timerDisplay = document.getElementById("timer");
+const bestTimeDisplay = document.getElementById("best-time");
+
+// Load best time from localStorage
+let bestTime = Number(localStorage.getItem("bestTime")) || null;
+
+// Display saved best time
+if (bestTime !== null) {
+    bestTimeDisplay.textContent = formatTime(bestTime);
+} else {
+    bestTimeDisplay.textContent = "--";
+}
+
+// Format milliseconds into MM:SS.mmm
+function formatTime(time) {
+    const minutes = Math.floor(time / 60000);
+    const seconds = Math.floor((time % 60000) / 1000);
+    const milliseconds = time % 1000;
+
+    return (
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0") +
+        "." +
+        String(milliseconds).padStart(3, "0")
+    );
+}
+
+// Update timer display
+function updateTimer() {
+    elapsedTime = Date.now() - startTime;
+    timerDisplay.textContent = formatTime(elapsedTime);
+}
+
+// ================= START =================
+
+document
+    .getElementById("start-timer")
+    .addEventListener("click", () => {
+
+        // Prevent multiple intervals
+        if (timerInterval) return;
+
+        startTime = Date.now() - elapsedTime;
+
+        timerInterval = setInterval(updateTimer, 10);
+    });
+
+// ================= STOP =================
+
+document
+    .getElementById("stop-timer")
+    .addEventListener("click", () => {
+
+        if (!timerInterval) return;
+
+        clearInterval(timerInterval);
+        timerInterval = null;
+
+        // Update Best Time
+        if (bestTime === null || elapsedTime < bestTime) {
+
+            bestTime = elapsedTime;
+
+            localStorage.setItem(
+                "bestTime",
+                bestTime.toString()
+            );
+
+            bestTimeDisplay.textContent =
+                formatTime(bestTime);
+        }
+
+        console.log(
+            "Current:",
+            elapsedTime,
+            "Best:",
+            bestTime
+        );
+    });
+
+// ================= RESET =================
+
+document
+    .getElementById("reset-timer")
+    .addEventListener("click", () => {
+
+        clearInterval(timerInterval);
+
+        timerInterval = null;
+
+        elapsedTime = 0;
+
+        timerDisplay.textContent = "00:00.000";
+    });
+
+// ================= OPTIONAL SPACEBAR CONTROL =================
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.code !== "Space") return;
+
+    e.preventDefault();
+
+    if (!timerInterval) {
+
+        startTime = Date.now();
+
+        elapsedTime = 0;
+
+        timerInterval = setInterval(updateTimer, 10);
+
+    } else {
+
+        clearInterval(timerInterval);
+
+        timerInterval = null;
+
+        if (bestTime === null || elapsedTime < bestTime) {
+
+            bestTime = elapsedTime;
+
+            localStorage.setItem(
+                "bestTime",
+                bestTime.toString()
+            );
+
+            bestTimeDisplay.textContent =
+                formatTime(bestTime);
+        }
+    }
+});
+    // ================= DRAG TIMER =================
+
+const timerBox = document.querySelector(".timer-container");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+timerBox.addEventListener("mousedown", (e) => {
+    isDragging = true;
+
+    offsetX = e.clientX - timerBox.offsetLeft;
+    offsetY = e.clientY - timerBox.offsetTop;
+
+    timerBox.style.bottom = "auto";
+    timerBox.style.transform = "none";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    timerBox.style.left = `${e.clientX - offsetX}px`;
+    timerBox.style.top = `${e.clientY - offsetY}px`;
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+});
+document.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+
+    localStorage.setItem(
+        "timerPosition",
+        JSON.stringify({
+            left: timerBox.style.left,
+            top: timerBox.style.top
+        })
+    );
+
+    isDragging = false;
+});
+
+const savedPosition =
+    JSON.parse(localStorage.getItem("timerPosition"));
+
+if (savedPosition) {
+    timerBox.style.left = savedPosition.left;
+    timerBox.style.top = savedPosition.top;
+    timerBox.style.bottom = "auto";
+    timerBox.style.transform = "none";
+}
+timerBox.addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+
+    isDragging = true;
+
+    offsetX = touch.clientX - timerBox.offsetLeft;
+    offsetY = touch.clientY - timerBox.offsetTop;
+
+    timerBox.style.bottom = "auto";
+    timerBox.style.transform = "none";
+});
+
+document.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+
+    const touch = e.touches[0];
+
+    timerBox.style.left =
+        `${touch.clientX - offsetX}px`;
+
+    timerBox.style.top =
+        `${touch.clientY - offsetY}px`;
+});
+
+document.addEventListener("touchend", () => {
+    isDragging = false;
+});
