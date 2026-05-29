@@ -1,25 +1,112 @@
+:root {
+    --bg-start: rgb(80, 80, 80);
+    --bg-end: black;
+    --text-color: white;
+    --border-color: white;
+    --button-bg: rgba(255,255,255,0.05);
+}
+
+.light-mode {
+    --bg-start: #f2f2f2;
+    --bg-end: #dcdcdc;
+    --text-color: #222;
+    --border-color: #222;
+    --button-bg: white;
+}
+
 * {
     margin: 0;
     padding: 0;
-    color: white;
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
 body {
-    background-image: radial-gradient(rgb(80, 80, 80), black);
+    background-image: radial-gradient(
+        var(--bg-start),
+        var(--bg-end)
+    );
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     height: 100vh;
     overflow: hidden;
+    transition: all 0.4s ease;
+}
+.top-bar {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    z-index: 1000;
+}
+
+.theme-btn {
+    padding: 10px 15px;
+    font-weight: bold;
+}
+.timer-container {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    cursor: move;
+    user-select: none;
+
+    z-index: 9999;
+
+    padding: 15px 25px;
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+#timer {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.timer-buttons button {
+    flex: 1;
+}
+
+.theme-btn {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#best-time {
+    color: gold;
+    font-weight: bold;
+}
+
+.timer-container p {
+    text-align: center;
+    margin: 0;
 }
 
 table,
 th,
 td {
-    border: 1px solid white;
+    border: 1px solid var(--border-color);
     border-collapse: collapse;
     line-height: 1.4rem;
     border-spacing: 5px;
@@ -44,9 +131,17 @@ td {
 }
 
 button {
-    color: white;
-    background-color: transparent;
+    color: var(--text-color);
+    background-color: var(--button-bg);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
 }
 
 .buttons {
@@ -129,6 +224,49 @@ button {
   grid-row: 4/5;
   grid-column: 2/3;
 }
+@media screen and (max-width: 768px) {
+
+    .timer-container {
+        width: 90%;
+        max-width: 350px;
+
+        bottom: 15px;
+        padding: 12px;
+
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #timer {
+        font-size: 1.8rem;
+    }
+
+    .timer-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .timer-buttons button {
+        flex: 1;
+        min-width: 70px;
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .theme-btn {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .face-moves,
+    .instructions {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 650px) {
   footer {
     position: absolute;
